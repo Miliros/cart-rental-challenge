@@ -1,10 +1,13 @@
-import "./App.css";
+import "./index.css";
+import { NavBar } from "./components/Nav/NavBar";
 
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline bg-red-700">Hello world!</h1>{" "}
-    </>
+    <div className="bg-red-600 flex justify-center">
+      <div className="w-7xl">
+        <NavBar />
+      </div>
+    </div>
   );
 }
 

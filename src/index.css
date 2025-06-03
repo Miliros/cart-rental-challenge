@@ -1,1 +1,34 @@
+@font-face {
+  font-family: "Font1";
+  src: url("/fonts//subset-GTWalsheim-Regular-_1.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Font2";
+  src: url("/fonts/subset-GTWalsheim-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Font3";
+  src: url("/fonts/subset-GTWalsheim-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @import "tailwindcss";
+
+@theme {
+  --font-font1: "Font1", sans-serif;
+  --font-font2: "Font2", sans-serif;
+  --font-font3: "Font3", sans-serif;
+}
+
+:root {
+  --color-custom-blue: rgba(49, 121, 189, 1);
+  --color-custom-dark-blue: rgba(30, 48, 80, 1);
+  --color-custom-light-gray: rgba(241, 243, 246, 1);
+}
