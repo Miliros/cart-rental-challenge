@@ -31,4 +31,7 @@
   --color-custom-blue: rgba(49, 121, 189, 1);
   --color-custom-dark-blue: rgba(30, 48, 80, 1);
   --color-custom-light-gray: rgba(241, 243, 246, 1);
+  --color-custom-background: rgba(6, 16, 45, 1);
+  --color-custom-2: rgba(16, 44, 121, 1);
+  --color-custom-highlight: rgba(124, 154, 237, 1);
 }

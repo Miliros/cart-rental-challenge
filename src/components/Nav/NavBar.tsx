@@ -1,6 +1,6 @@
 export const NavBar = () => {
   return (
-    <nav className="font-font2 flex flex-wrap items-center justify-between w-full px-4 py-2 bg-white shadow-md lg:px-8 lg:py-3 text-[var(--color-custom-dark-blue)]">
+    <nav className="font-font2 flex flex-wrap items-center justify-between w-full px-4   lg:px-8 lg:py-3 text-[var(--color-custom-dark-blue)]">
       <div className="flex items-center w-full lg:w-auto mb-4 lg:mb-0">
         <img
           src="/images/icons_logos/logo-udr.svg"
