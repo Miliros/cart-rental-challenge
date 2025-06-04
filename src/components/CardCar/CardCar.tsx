@@ -35,6 +35,7 @@ const CardCar: React.FC<CardCarProps> = ({ car, onActionClick }) => {
       label: car.features.air_conditioner ? "A/C" : "No A/C",
     },
   ];
+  
 
   return (
     <div className="flex flex-row justify-between shadow-lg rounded-xl overflow-hidden bg-white border border-gray-200 w-[900px] h-[249px]">

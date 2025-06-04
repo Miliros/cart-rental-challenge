@@ -37,7 +37,6 @@ const useCarData = (jsonData: any): Car[] => {
     }
     setCars(extractedCars);
   }, [jsonData]);
-
   return cars;
 };
 
