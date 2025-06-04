@@ -1,6 +1,6 @@
 export const StepsNavigation = () => {
   return (
-    <div className="w-[50%] mx-auto bg-[var(--color-custom-2)] rounded-lg flex items-center justify-between py-4">
+    <div className="w-[70%] mx-auto bg-[var(--color-custom-2)] rounded-lg flex items-center justify-between py-4">
       <div className="flex items-center gap-[40px]">
         <div className="text-[14px] font-bold text-amber-50 flex items-center">
           Selecciona tu vehículo
