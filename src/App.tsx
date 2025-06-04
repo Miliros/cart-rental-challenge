@@ -2,6 +2,7 @@ import "./index.css";
 import { NavBar } from "./components/Nav/NavBar";
 import ReservationDetails from "./components/ReservationDetails/ReservationDetails";
 import { StepsNavigation } from "./components/StepNavigation/StepsNavigation";
+import FilterSidebar from "./components/FilterSideBar/FilterSideBar";
 
 function App() {
   const handleModify = () => {
@@ -23,6 +24,11 @@ function App() {
 
       <div className="flex items-center justify-center w-full bg-[var(--color-custom-2)] h-[60px] mt-4">
         <StepsNavigation />
+      </div>
+      <div className="w-full bg-[var(--color-custom-light-gray)] h-[800px] flex justify-center">
+        <div className="w-9xl mx-auto h-full bg-amber-800">
+          <FilterSidebar />
+        </div>
       </div>
     </div>
   );

@@ -34,4 +34,7 @@
   --color-custom-background: rgba(6, 16, 45, 1);
   --color-custom-2: rgba(16, 44, 121, 1);
   --color-custom-highlight: rgba(124, 154, 237, 1);
+  --color-custom-filters: rgba(240, 244, 253, 1);
+  --color-custom-gray: rgba(238, 239, 244, 1);
+  --color-custom-bold: rgba(155, 159, 183, 1);
 }
