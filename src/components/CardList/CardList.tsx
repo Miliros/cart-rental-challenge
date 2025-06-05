@@ -27,10 +27,10 @@ const CardList = () => {
             </span>
           </label>
           <div className="flex space-x-6">
-            <button className="flex items-center justify-center bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md hover:bg-blue-700 transition w-[125px] h-[40px]">
+            <button className="flex items-center justify-center bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md hover:bg-blue-700 transition w-[125px] h-[35px]">
               Enviar cotización
             </button>
-            <button className="flex items-center justify-center bg-white border border-[var(--color-custom-gray)] text-[12px] font-bold text-[var(--color-light-gray)] rounded-md hover:bg-blue-100 transition w-[125px] h-[40px]">
+            <button className="flex items-center justify-center bg-white border border-[var(--color-custom-gray)] text-[12px] font-bold text-[var(--color-light-gray)] rounded-md hover:bg-blue-100 transition w-[125px] h-[35px]">
               <span className="flex items-center space-x-2">
                 <span>Mayor precio</span>
               </span>

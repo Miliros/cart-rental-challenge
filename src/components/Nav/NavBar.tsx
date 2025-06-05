@@ -9,7 +9,7 @@ export const NavBar = () => {
         />
       </div>
 
-      <ul className="flex flex-col lg:flex-row lg:gap-8 w-full lg:w-auto text-sm font-medium text-center lg:text-left">
+      <ul className="flex flex-col lg:flex-row lg:gap-8 w-full lg:w-auto text-sm  text-center lg:text-left font-bold">
         <li className="mb-2 lg:mb-0">
           <a
             href="#"
@@ -24,7 +24,7 @@ export const NavBar = () => {
           </a>
         </li>
         <li className="mb-2 lg:mb-0">
-          <a href="#" className="block lg:inline hover:text-blue-600">
+          <a href="#" className="block lg:inline hover:text-blue-600 font-bold">
             Contáctanos
           </a>
         </li>

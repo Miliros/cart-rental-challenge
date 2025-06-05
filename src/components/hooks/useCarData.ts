@@ -6,9 +6,17 @@ const useCarData = (jsonData: any): Car[] => {
 
   useEffect(() => {
     const extractedCars: Car[] = [];
+    let count = 0;
+    const maxCars = 19;
+
     for (const company in jsonData.cars) {
-      extractedCars.push(
-        ...jsonData.cars[company].map((car: any) => ({
+      for (const car of jsonData.cars[company]) {
+        if (count >= maxCars) break;
+
+        const firstRateKey = Object.keys(car.rates)[0];
+        const rate = car.rates[firstRateKey];
+
+        extractedCars.push({
           name: car.name,
           name_details: car.name_details,
           code: car.code,
@@ -28,15 +36,20 @@ const useCarData = (jsonData: any): Car[] => {
           picture_url: car.picture_url,
           pricing: {
             usdAmount:
-              car.rates?.USD?.total_charge?.base?.total_amount || "0.00",
+              rate?.pricing?.USD?.total_charge?.base?.total_amount || "0.00",
             copAmount:
-              car.rates?.COP?.total_charge?.base?.total_amount || "0.00",
+              rate?.pricing?.COP?.total_charge?.base?.total_amount || "0.00",
           },
-        }))
-      );
+        });
+
+        count++;
+      }
+      if (count >= maxCars) break;
     }
+
     setCars(extractedCars);
   }, [jsonData]);
+
   return cars;
 };
 

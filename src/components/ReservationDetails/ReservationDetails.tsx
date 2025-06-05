@@ -1,4 +1,5 @@
 import React from "react";
+import { IoIosArrowForward } from "react-icons/io";
 
 interface ReservationDetailsProps {
   origin: string;
@@ -16,33 +17,25 @@ const ReservationDetails: React.FC<ReservationDetailsProps> = ({
   onModify,
 }) => {
   return (
-    <div className="px-8  flex items-center justify-between gap-2 w-full mt-5  ">
+    <div className="px-8 flex items-center justify-between gap-2 w-full mt-5">
       {/* Airports Section */}
-      <div className="flex items-center justify-center bg-[var(--color-custom-light-gray)] rounded-md flex-1 p-3 gap-[10px]">
-        <span className="text-[14px] font-medium  text-[var(--color-custom-background)]">
+      <div className="flex items-center justify-center bg-[var(--color-custom-light-gray)] rounded-md flex-1 p-3 gap-[16px]">
+        <span className="text-[14px] font-medium text-[var(--color-custom-background)]">
           {origin}
         </span>
-        <img
-          src="/images/icons_logos/chevron-icon.svg"
-          alt="Chevron Icon"
-          className="w-4 h-4"
-        />
-        <span className="text-[13px] font-medium  text-[var(--color-custom-background)]">
+        <IoIosArrowForward className="text-gray-500 mx-4" size={16} />
+        <span className="text-[13px] font-medium text-[var(--color-custom-background)]">
           {destination}
         </span>
       </div>
 
       {/* Dates Section */}
-      <div className="flex items-center justify-center bg-[var(--color-custom-light-gray)] rounded-md flex-1 p-3 gap-[10px]">
-        <span className="text-[14px] font-medium  text-[var(--color-custom-background)]">
+      <div className="flex items-center justify-center bg-[var(--color-custom-light-gray)] rounded-md flex-1 p-3 gap-[16px]">
+        <span className="text-[14px] font-medium text-[var(--color-custom-background)]">
           {startDate}
         </span>
-        <img
-          src="/images/icons_logos/chevron-icon.svg"
-          alt="Chevron Icon"
-          className="w-4 h-4 "
-        />
-        <span className="text-[14px] font-medium  text-[var(--color-custom-background)]">
+        <IoIosArrowForward className="text-gray-500 mx-4" size={16} />
+        <span className="text-[14px] font-medium text-[var(--color-custom-background)]">
           {endDate}
         </span>
       </div>
