@@ -9,6 +9,10 @@ interface CarStoreState {
     doors: string[];
     large_suitcase: string[];
     sort: "mayor" | "menor" | "none";
+    priceRange: {
+      min: number;
+      max: number;
+    };
   };
   setCars: (cars: Car[]) => void;
   setSort: (sort: "mayor" | "menor" | "none") => void;
@@ -16,7 +20,7 @@ interface CarStoreState {
     type: "category" | "doors" | "large_suitcase",
     value: string
   ) => void;
-
+  setPriceRange: (min: number, max: number) => void;
   applyFilters: () => void;
 }
 
@@ -28,6 +32,7 @@ export const useCarStore = create<CarStoreState>((set) => ({
     doors: [],
     large_suitcase: [],
     sort: "none",
+    priceRange: { min: 650000, max: 1510000 }, // nuevo campo
   },
 
   setCars: (cars) =>
@@ -76,7 +81,17 @@ export const useCarStore = create<CarStoreState>((set) => ({
         filteredCars: aplicarFiltros(state.allCars, newFilters),
       };
     }),
-
+  setPriceRange: (min, max) =>
+    set((state) => {
+      const newFilters = {
+        ...state.filters,
+        priceRange: { min, max },
+      };
+      return {
+        filters: newFilters,
+        filteredCars: aplicarFiltros(state.allCars, newFilters),
+      };
+    }),
   applyFilters: () =>
     set((state) => {
       const filtered = aplicarFiltros(state.allCars, state.filters);
@@ -84,7 +99,6 @@ export const useCarStore = create<CarStoreState>((set) => ({
     }),
 }));
 
-// Función auxiliar
 function aplicarFiltros(cars: Car[], filters: CarStoreState["filters"]): Car[] {
   let result = [...cars];
 
@@ -130,5 +144,11 @@ function aplicarFiltros(cars: Car[], filters: CarStoreState["filters"]): Car[] {
     );
   }
 
+  if (filters.priceRange) {
+    result = result.filter((car) => {
+      const price = parseFloat(car.pricing.copAmount);
+      return price >= filters.priceRange.min && price <= filters.priceRange.max;
+    });
+  }
   return result;
 }

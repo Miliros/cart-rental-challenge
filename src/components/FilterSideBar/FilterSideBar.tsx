@@ -3,11 +3,15 @@ import { AiOutlineDown } from "react-icons/ai";
 import { useCarStore } from "../store/carStore";
 
 const FilterSidebar: React.FC = () => {
-  const [minPrice, setMinPrice] = useState<number>(2000000);
-  const [maxPrice, setMaxPrice] = useState<number>(7000000);
+  const minSliderLimit = 650000;
+  const maxSliderLimit = 1510000;
+
+  const [minPrice, setMinPrice] = useState<number>(minSliderLimit);
+  const [maxPrice, setMaxPrice] = useState<number>(maxSliderLimit);
 
   const setFilter = useCarStore((state) => state.setFilter);
   const filtersState = useCarStore((state) => state.filters);
+  const setPriceRange = useCarStore((state) => state.setPriceRange);
 
   const filters: {
     id: keyof typeof filtersState;
@@ -81,7 +85,9 @@ const FilterSidebar: React.FC = () => {
                 <input
                   type="checkbox"
                   checked={
-                    filtersState[filter.id].includes(option) ||
+                    filtersState[
+                      filter.id as "category" | "doors" | "large_suitcase"
+                    ].includes(option) ||
                     (filter.id === "category" &&
                       filtersState.category.length === 0)
                   }
@@ -115,9 +121,14 @@ const FilterSidebar: React.FC = () => {
               max={10000000}
               step={100000}
               value={minPrice}
-              onChange={(e) =>
-                setMinPrice(Math.min(Number(e.target.value), maxPrice - 100000))
-              }
+              onChange={(e) => {
+                const newMin = Math.min(
+                  Number(e.target.value),
+                  maxPrice - 10000
+                );
+                setMinPrice(newMin);
+                setPriceRange(newMin, maxPrice);
+              }}
               className="absolute w-full appearance-none bg-transparent
                 [&::-webkit-slider-thumb]:appearance-none 
                 [&::-webkit-slider-thumb]:h-5 
@@ -135,9 +146,14 @@ const FilterSidebar: React.FC = () => {
               max={10000000}
               step={100000}
               value={maxPrice}
-              onChange={(e) =>
-                setMaxPrice(Math.max(Number(e.target.value), minPrice + 100000))
-              }
+              onChange={(e) => {
+                const newMax = Math.max(
+                  Number(e.target.value),
+                  minPrice + 10000
+                );
+                setMaxPrice(newMax);
+                setPriceRange(minPrice, newMax);
+              }}
               className="absolute w-full appearance-none bg-transparent
                 [&::-webkit-slider-thumb]:appearance-none
                 [&::-webkit-slider-thumb]:h-5
