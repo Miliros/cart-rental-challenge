@@ -18,4 +18,5 @@ export interface Car {
     usdAmount: string;
     copAmount: string;
   };
+  inclusions: { name: string; description: string }[];
 }

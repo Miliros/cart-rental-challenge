@@ -43,7 +43,7 @@ const ReservationDetails: React.FC<ReservationDetailsProps> = ({
       {/* Modify Button */}
       <button
         onClick={onModify}
-        className="bg-[var(--color-custom-blue)] text-white text-[14px] rounded-md hover:bg-blue-700 transition min-w-[100px] p-3"
+        className="bg-[var(--color-custom-blue)] text-white text-[14px] rounded-md hover:bg-blue-700 transition min-w-[100px] p-3 font-font1"
       >
         Modificar
       </button>

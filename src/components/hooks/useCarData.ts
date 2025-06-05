@@ -16,6 +16,15 @@ const useCarData = (jsonData: any): Car[] => {
         const firstRateKey = Object.keys(car.rates)[0];
         const rate = car.rates[firstRateKey];
 
+        const inclusionsMeta = rate?.inclusions_meta || {};
+        const inclusions = Object.values(inclusionsMeta)
+          .filter((inc: any) => inc.visible_voucher)
+          .map((inc: any) => ({
+            name: inc.name,
+            description: inc.description,
+          }));
+
+        console.log(inclusions);
         extractedCars.push({
           name: car.name,
           name_details: car.name_details,
@@ -40,8 +49,8 @@ const useCarData = (jsonData: any): Car[] => {
             copAmount:
               rate?.pricing?.COP?.total_charge?.base?.total_amount || "0.00",
           },
+          inclusions,
         });
-
         count++;
       }
       if (count >= maxCars) break;

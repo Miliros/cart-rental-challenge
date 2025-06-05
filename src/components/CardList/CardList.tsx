@@ -1,6 +1,7 @@
 import useCarData from "../hooks/useCarData";
 import carDataJSON from "../../data/carsJSON.json";
 import CardCar from "../CardCar/CardCar";
+import { IoIosArrowDown } from "react-icons/io";
 
 const CardList = () => {
   const cars = useCarData(carDataJSON);
@@ -13,7 +14,7 @@ const CardList = () => {
     <div className="flex-1 p-4 w-full">
       {/* Barra de filtros */}
       <div className="flex flex-col md:flex-row items-center justify-center bg-[var(--color-light-gray)] rounded-md mb-6 space-y-6 md:space-y-0 md:space-x-8">
-        <h2 className="text-sm text-[var(--color-custom-blue)] font-bold">
+        <h2 className="text-sm text-[var(--color-custom-blue)] font-font3">
           Encontramos {cars.length} vehículos para tu búsqueda
         </h2>
         <div className="flex items-center mt-4 md:mt-0 space-x-10">
@@ -22,19 +23,23 @@ const CardList = () => {
               type="checkbox"
               className="form-checkbox h-5 w-5 text-blue-600"
             />
-            <span className="ml-4 text-sm text-black">
+            <span className="ml-4 text-sm text-black font-font1">
               Mostrar destacados primero
             </span>
           </label>
           <div className="flex space-x-6">
-            <button className="flex items-center justify-center bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md hover:bg-blue-700 transition w-[125px] h-[35px]">
+            <button className="flex items-center justify-center bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md hover:bg-blue-700 transition w-[125px] h-[35px] font-font3">
               Enviar cotización
             </button>
-            <button className="flex items-center justify-center bg-white border border-[var(--color-custom-gray)] text-[12px] font-bold text-[var(--color-light-gray)] rounded-md hover:bg-blue-100 transition w-[125px] h-[35px]">
-              <span className="flex items-center space-x-2">
-                <span>Mayor precio</span>
+            <div className="relative">
+              <select className="w-[125px] h-[35px] text-[10px] font-bold text-[var(--color-light-gray)] bg-white border border-[var(--color-custom-gray)] rounded-md hover:bg-blue-100 transition appearance-none text-center pr-6 font-font3">
+                <option value="mayor">Mayor precio</option>
+                <option value="menor">Menor precio</option>
+              </select>
+              <span className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                <IoIosArrowDown size={10} color="grey" />
               </span>
-            </button>
+            </div>
           </div>
         </div>
       </div>

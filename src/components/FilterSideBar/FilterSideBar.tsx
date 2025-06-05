@@ -48,14 +48,14 @@ const FilterSidebar: React.FC = () => {
   };
 
   return (
-    <div className="w-68 bg-gray-100 pt-6 pb-6 rounded-lg shadow-lg">
+    <div className="w-[320px] h-[20%]  bg-white pt-6 pb-6 rounded-lg shadow-lg">
       <div className="flex items-center mb-4 pl-8">
         <img
           src="images/icons_logos/filter-icon.svg"
           alt="Filtrar"
           className="w-[18px] h-[18px] mr-4"
         />
-        <h2 className="text-md text-[var(--color-custom-blue)] font-bold">
+        <h2 className="text-[16px] text-[var(--color-custom-blue)] font-font3">
           Filtrar resultados
         </h2>
       </div>
@@ -66,10 +66,10 @@ const FilterSidebar: React.FC = () => {
             className="flex items-center justify-between w-full cursor-pointer bg-[var(--color-custom-filters)] pt-4 pb-4 pr-6"
             onClick={() => toggleSection(filter.id)}
           >
-            <h3 className="text-md text-[var(--color-custom-blue)] font-bold  pl-8">
+            <h3 className="text-[16px] text-[var(--color-custom-blue)] font-font3  pl-8">
               {filter.title}
             </h3>
-            <AiOutlineDown className="w-5 h-5" color="grey" />
+            <AiOutlineDown size={12} color="grey" />
           </div>
           {openSections[filter.id] && (
             <div className="space-y-2 w-full px-4 mt-2  pl-8 ">
@@ -77,9 +77,9 @@ const FilterSidebar: React.FC = () => {
                 <label key={option} className="flex items-center ">
                   <input
                     type="checkbox"
-                    className="h-4 w-4 text-[var(--color-custom-blue)] rounded-full border-[0.125rem] border-slate-300"
+                    className="h-4 w-4 text-[var(--color-custom-blue)] rounded-full border-[0.125rem] border-slate-300 "
                   />
-                  <span className="ml-2 text-gray-700">{option}</span>
+                  <span className="ml-5 text-black font-font1">{option}</span>
                 </label>
               ))}
             </div>
@@ -92,7 +92,7 @@ const FilterSidebar: React.FC = () => {
           className="flex items-center justify-between w-full cursor-pointer bg-[var(--color-custom-filters)] pr-6 pt-4 pb-4 pl-8"
           onClick={() => toggleSection("precio")}
         >
-          <h3 className="text-md text-[var(--color-custom-blue)] font-bold">
+          <h3 className="text-md text-[var(--color-custom-blue)] font-font3">
             Fijar un rango de precio (COP)
           </h3>
           <AiOutlineDown className="w-5 h-5" color="grey" />
@@ -154,12 +154,12 @@ const FilterSidebar: React.FC = () => {
             <div className="flex flex-col gap-3 pl-2">
               <div className="flex rounded-lg border border-[var(--color-custom-gray)] overflow-hidden">
                 <div className="bg-gray-200 flex items-center px-3 py-2">
-                  <span className="text-[var(--color-custom-bold)] font-bold">
+                  <span className="text-[var(--color-custom-bold)] font-font3 text-[12px]">
                     COP
                   </span>
                 </div>
                 <div className="bg-white flex items-center justify-between px-3 py-2 w-full">
-                  <span className="text-[var(--color-custom-bold)] font-bold mr-2">
+                  <span className="text-[var(--color-custom-bold)] font-font2 mr-2">
                     desde
                   </span>
                   <input
@@ -169,19 +169,19 @@ const FilterSidebar: React.FC = () => {
                       style: "decimal",
                       minimumFractionDigits: 2,
                     })}
-                    className="bg-transparent focus:outline-none w-full text-right font-semibold text-[var(--color-custom-blue)]"
+                    className="bg-transparent focus:outline-none w-full text-right font-font3 text-[var(--color-custom-blue)]"
                   />
                 </div>
               </div>
 
               <div className="flex rounded-lg border border-[var(--color-custom-gray)] overflow-hidden">
                 <div className="bg-gray-200 flex items-center px-3 py-2">
-                  <span className="text-[var(--color-custom-bold)] font-bold">
+                  <span className="text-[var(--color-custom-bold)] font-font3 text-[12px]">
                     COP
                   </span>
                 </div>
                 <div className="bg-white flex items-center justify-between px-3 py-2 w-full">
-                  <span className="text-[var(--color-custom-bold)] font-bold mr-2">
+                  <span className="text-[var(--color-custom-bold)] font-font2 mr-2">
                     hasta
                   </span>
                   <input
@@ -191,7 +191,7 @@ const FilterSidebar: React.FC = () => {
                       style: "decimal",
                       minimumFractionDigits: 2,
                     })}
-                    className="bg-transparent focus:outline-none w-full text-right font-semibold text-[var(--color-custom-blue)]"
+                    className="bg-transparent focus:outline-none w-full text-right font-font3 text-[var(--color-custom-blue)]"
                   />
                 </div>
               </div>

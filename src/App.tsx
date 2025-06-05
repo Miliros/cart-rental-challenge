@@ -27,8 +27,8 @@ function App() {
         <StepsNavigation />
       </div>
       <div className="w-full bg-[var(--color-custom-light-gray)] h-full flex justify-center pt-4">
-        <div className="w-[87%] pt-1.5">
-          <div className="flex flex-row w-9xl mx-auto h-full bg-transparent">
+        <div className="pt-1.5 w-[89%]">
+          <div className="flex flex-row  mx-auto h-full bg-transparent">
             <FilterSidebar />
             <CardList />
           </div>
