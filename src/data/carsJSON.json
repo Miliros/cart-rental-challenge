@@ -10516,11 +10516,208 @@
                                 "placeholder": "Durante el per\u00edodo de alquiler, est\u00e1 permitido el consumo ilimitado de kil\u00f3metros.",
                                 "priority": 92
                             }
+                            
                         ],
                         "id": 2
                     }
                 }
+            },  {
+                "brand": 3,
+                "name": "Kia Soul",
+                "name_details": "Kia Soul o similar",
+                "code": "CCAR",
+                "vehicle_group": "B",
+                "air_conditioner": true,
+                "transmission_type": "Automatic",
+                "vehicle_type": "1",
+                "vehicle_class": "4",
+                "fuel_type": null,
+                "drive_type": null,
+                "door_count": null,
+                "picture_url": {
+                    "normal": "/images/icons_logo/payless-logo.svg",
+                    "featured": "/public/images/cars/2020-kia-rio-s-sedan-white.png"
+                },
+                "stars": 3,
+                "features": {
+                    "doors": "2",
+                    "seats": "5",
+                    "air_conditioner": true,
+                    "transmition": "Automatic",
+                    "fuel_type": "Gasoline",
+                    "large_suitcase": 1,
+                    "small_suitcase": 2,
+                    "thumb": "2024-kia-soul-lx-5door-hatchback-white.png",
+                    "fleet_group_id": 2,
+                    "fleet_category_id": 10,
+                    "fleet_original_category_id": 10,
+                    "category": "Compacto"
+                },
+                "tags": [],
+                "rates": {
+                    "01": {
+                        "rate_data": {
+                            "name": "Com seguro total",
+                            "net_rate": false,
+                            "rate_type": "pp",
+                            "inclusions": {
+                                "name": [],
+                                "description": []
+                            },
+                            "step_one": true
+                        },
+                        "inclusions_meta": {
+                            "um": {
+                                "name": "Millaje libre",
+                                "description": "Se le permite conducir un número ilimitado de millas durante su alquiler sin costo adicional.",
+                                "visible_voucher": true
+                            },
+                            "ldwc": {
+                                "name": "Protección total del vehículo",
+                                "description": "Cobertura total contra robo, incendio o colisión, siempre que esté dentro de los términos del contrato de alquiler.",
+                                "visible_voucher": true
+                            },
+                            "tplc": {
+                                "name": "Protección contra terceros",
+                                "description": "Cobertura de responsabilidad hacia terceros requerida por la ley y aplicable si el conductor causa lesiones a un tercero y / o su propiedad.",
+                                "visible_voucher": true
+                            },
+                            "as": {
+                                "name": "Recargo de Aeropuerto",
+                                "description": "Es el cargo que se aplica cuando la renta comienza en una oficina de  localizada en un aeropuerto.",
+                                "visible_voucher": true
+                            },
+                            "lstax": {
+                                "name": "Impuestos estatales y locales",
+                                "description": "Son los impuestos (nacionales, estatales o locales) que por ley aplican a la renta de vehículos en el lugar de inicio del mismo.",
+                                "visible_voucher": true
+                            },
+                            "fad": {
+                                "name": "Conductor adicional",
+                                "description": "Permite agregar a otra persona para conducir el vehículo durante todo el período de la renta al igual que conductor titular.",
+                                "visible_voucher": true
+                            },
+                            "safetysecure": {
+                                "name": "Vehículos desinfectados previo a su entrega",
+                                "description": "Esta compañía rentadora prioriza la salud y seguridad de nuestros clientes. Por este motivo, todos los vehículos son desinfectados antes de ser entregados para que puedas disfrutar tu viaje con mayor tranquilidad.",
+                                "visible_voucher": false
+                            },
+                            "basic-rsn": {
+                                "name": "Asistencia básica en la carretera",
+                                "description": "La compañía rentadora ofrece asistencia básica las 24 horas en caso que el vehículo presente fallas mecánicas. Por favor ten en cuenta que el titular de la reserva deberá asumir cualquier costo que se pueda generar debido a daños causados al vehículo y/o servicios no incluidos en la asistencia básica.",
+                                "visible_voucher": true
+                            },
+                            "mod": {
+                                "name": "Modifica tu reserva sin costo",
+                                "description": "Realiza modificaciones en tu reserva antes de la fecha de inicio sin incurrir en cargos administrativos. En caso de que el plan aumente, se aplicará la diferencia correspondiente.",
+                                "visible_voucher": true
+                            }
+                        },
+                        "discount_numbers": null,
+                        "pricing": {
+                            "USD": {
+                                "total_charge": {
+                                    "base": {
+                                        "total_amount": "157.20",
+                                        "estimated_total_amount": "157.20",
+                                        "estimated_total_amount_without_equipment_amount": "157.20",
+                                        "pp": {
+                                            "prepaid_amount": "157.20",
+                                            "paid_on_destination_amount": "0.00"
+                                        },
+                                        "pd": {
+                                            "prepaid_amount": "0.00",
+                                            "paid_on_destination_amount": "157.20"
+                                        }
+                                    },
+                                    "discounts": null,
+                                    "total": {
+                                        "total_amount": "157.20",
+                                        "estimated_total_amount": "157.20",
+                                        "estimated_total_amount_without_equipment_amount": "157.20",
+                                        "pp": {
+                                            "prepaid_amount": "157.20",
+                                            "paid_on_destination_amount": "0.00"
+                                        },
+                                        "pd": {
+                                            "prepaid_amount": "0.00",
+                                            "paid_on_destination_amount": "157.20"
+                                        }
+                                    }
+                                }
+                            },
+                            "COP": {
+                                "total_charge": {
+                                    "base": {
+                                        "total_amount": "652258.96",
+                                        "estimated_total_amount": "652258.96",
+                                        "estimated_total_amount_without_equipment_amount": "652258.96",
+                                        "pp": {
+                                            "prepaid_amount": "652258.96",
+                                            "paid_on_destination_amount": "0.00"
+                                        },
+                                        "pd": {
+                                            "prepaid_amount": "0.00",
+                                            "paid_on_destination_amount": "652258.96"
+                                        }
+                                    },
+                                    "discounts": null,
+                                    "total": {
+                                        "total_amount": "652258.96",
+                                        "estimated_total_amount": "652258.96",
+                                        "estimated_total_amount_without_equipment_amount": "652258.96",
+                                        "pp": {
+                                            "prepaid_amount": "652258.96",
+                                            "paid_on_destination_amount": "0.00"
+                                        },
+                                        "pd": {
+                                            "prepaid_amount": "0.00",
+                                            "paid_on_destination_amount": "652258.96"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "tags": [
+                            {
+                                "id": 7,
+                                "name_filter": "Millas ilimitadas",
+                                "visible": false,
+                                "name": "Millas ilimitadas",
+                                "icon": "https://test/assets/tags/01JGKT8BCFKZEE7ZCVHJN0Y0E4.svg",
+                                "color": "#107add",
+                                "remote_url": null,
+                                "placeholder": "Durante el período de alquiler, está permitido el consumo ilimitado de millas.",
+                                "priority": 20
+                            },
+                            {
+                                "id": 21,
+                                "name_filter": "Primer conductor adicional",
+                                "visible": false,
+                                "name": "Primer conductor adicional",
+                                "icon": "https://test/assets/tags/01JGKTVE9NAAJP5242D2QSN3ZZ.svg",
+                                "color": "#107add",
+                                "remote_url": null,
+                                "placeholder": "Permite añadir a otra persona para conducir el vehículo durante todo el período de la renta, igual que el conductor titular.",
+                                "priority": 28
+                            },
+                            {
+                                "id": 3,
+                                "name_filter": "Todos los Impuestos incluidos",
+                                "visible": false,
+                                "name": "Todos los Impuestos incluidos",
+                                "icon": "https://test/assets/tags/01JGKTAXTJ3X0Z1R94P3AJW8YK.svg",
+                                "color": "#107add",
+                                "remote_url": null,
+                                "placeholder": "Seleccionando este plan no deberás pagar nada extra en destino, ya que incluye todos los impuestos, tasas y recargos que usualmente se suelen pagar en destino. ",
+                                "priority": 82
+                            }
+                        ],
+                        "id": 1816
+                    }
+                }
             }
+            
         ]
     }
 }

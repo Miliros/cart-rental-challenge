@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import type { Car } from "../../types/Car";
+import { useCarStore } from "../store/carStore";
 
-const useCarData = (jsonData: any): Car[] => {
-  const [cars, setCars] = useState<Car[]>([]);
+const useCarData = (jsonData: any): void => {
+  const setCars = useCarStore((state) => state.setCars);
 
   useEffect(() => {
     const extractedCars: Car[] = [];
@@ -24,7 +25,6 @@ const useCarData = (jsonData: any): Car[] => {
             description: inc.description,
           }));
 
-        console.log(inclusions);
         extractedCars.push({
           name: car.name,
           name_details: car.name_details,
@@ -57,9 +57,7 @@ const useCarData = (jsonData: any): Car[] => {
     }
 
     setCars(extractedCars);
-  }, [jsonData]);
-
-  return cars;
+  }, [jsonData, setCars]);
 };
 
 export default useCarData;

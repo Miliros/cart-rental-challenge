@@ -1,10 +1,15 @@
 import useCarData from "../hooks/useCarData";
-import carDataJSON from "../../data/carsJSON.json";
+import { useCarStore } from "../store/carStore";
 import CardCar from "../CardCar/CardCar";
 import { IoIosArrowDown } from "react-icons/io";
+import carDataJSON from "../../data/carsJSON.json";
 
 const CardList = () => {
-  const cars = useCarData(carDataJSON);
+  useCarData(carDataJSON); // carga los datos al montar
+  console.log(carDataJSON);
+
+  const cars = useCarStore((state) => state.filteredCars);
+  const setSort = useCarStore((state) => state.setSort);
 
   const handleActionClick = (id: string) => {
     alert(`Seleccionaste el vehículo con código: ${id}`);
@@ -32,10 +37,14 @@ const CardList = () => {
               Enviar cotización
             </button>
             <div className="relative">
-              <select className="w-[125px] h-[35px] text-[10px] font-bold text-[var(--color-light-gray)] bg-white border border-[var(--color-custom-gray)] rounded-md hover:bg-blue-100 transition appearance-none text-center pr-6 font-font3">
+              <select
+                onChange={(e) => setSort(e.target.value as "mayor" | "menor")}
+                className="w-[125px] h-[35px] text-[10px] font-bold text-[var(--color-light-gray)] bg-white border border-[var(--color-custom-gray)] rounded-md hover:bg-blue-100 transition appearance-none text-center pr-6 font-font3"
+              >
                 <option value="mayor">Mayor precio</option>
                 <option value="menor">Menor precio</option>
               </select>
+
               <span className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
                 <IoIosArrowDown size={10} color="grey" />
               </span>
@@ -46,9 +55,23 @@ const CardList = () => {
 
       {/* Tarjetas */}
       <div className="flex flex-col space-y-6 w-full">
-        {cars.map((car) => (
-          <CardCar key={car.code} car={car} onActionClick={handleActionClick} />
-        ))}
+        {cars.length === 0 ? (
+          <div className="flex justify-center items-center w-full h-full">
+            <div className="bg-white  rounded-md p-6 text-center shadow-md w-[890px] h-auto">
+              <p className="text-[var(--color-custom-blue)] font-font3 text-lg">
+                No hay búsquedas disponibles
+              </p>
+            </div>
+          </div>
+        ) : (
+          cars.map((car) => (
+            <CardCar
+              key={car.code}
+              car={car}
+              onActionClick={handleActionClick}
+            />
+          ))
+        )}
       </div>
     </div>
   );
