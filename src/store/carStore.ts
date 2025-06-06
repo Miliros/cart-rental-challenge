@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { Car } from "../../types/Car";
+import type { Car } from "../types/Car";
 
 interface CarStoreState {
   allCars: Car[];

@@ -1,5 +1,5 @@
 import useCarData from "../hooks/useCarData";
-import { useCarStore } from "../store/carStore";
+import { useCarStore } from "../../store/carStore";
 import CardCar from "../CardCar/CardCar";
 import { IoIosArrowDown } from "react-icons/io";
 import carDataJSON from "../../data/carsJSON.json";

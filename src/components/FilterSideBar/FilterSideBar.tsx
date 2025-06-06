@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { AiOutlineDown } from "react-icons/ai";
-import { useCarStore } from "../store/carStore";
+import { useCarStore } from "../../store/carStore";
 
 const FilterSidebar: React.FC = () => {
   const allCars = useCarStore((state) => state.allCars);
@@ -127,10 +127,10 @@ const FilterSidebar: React.FC = () => {
                       filtersState.large_suitcase.includes(option))
                   }
                   onChange={() => setFilter(filter.id as any, option)}
-                  className="h-4 w-4 text-[var(--color-custom-blue)] rounded-full border-[0.125rem] border-slate-300"
+                  className="h-4 w-4 p-1 text-[var(--color-custom-blue)] roun"
                 />
                 <span className="ml-5 font-font1">
-                  {option}{" "}
+                  {option}
                   <span className="text-gray-500">
                     ({getOptionCount(filter.id, option)})
                   </span>

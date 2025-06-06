@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import type { Car } from "../../types/Car";
-import { useCarStore } from "../store/carStore";
+import { useCarStore } from "../../store/carStore";
 
 const useCarData = (jsonData: any): void => {
   const setCars = useCarStore((state) => state.setCars);

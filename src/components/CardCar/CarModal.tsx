@@ -1,8 +1,10 @@
 import React from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { useCarStore } from "../../store/carStore";
 
 interface CarModalProps {
   modalData: {
+    code: string;
     image: string;
     logo: string;
     copPrice: string;
@@ -12,11 +14,14 @@ interface CarModalProps {
   handleSelect: () => void;
 }
 
-const CarModal: React.FC<CarModalProps> = ({
-  modalData,
-  handleCloseModal,
-  handleSelect,
-}) => {
+const CarModal: React.FC<CarModalProps> = ({ modalData, handleCloseModal }) => {
+  const unselectCar = useCarStore((state) => state.unselectCar);
+
+  const handleDelete = () => {
+    unselectCar(modalData.code);
+    handleCloseModal();
+  };
+
   return (
     <div className="justify-center fixed bottom-0 left-0 w-full bg-white shadow-xl z-50">
       <div className="justify-around flex items-center ">
@@ -54,13 +59,13 @@ const CarModal: React.FC<CarModalProps> = ({
 
           <div className="flex space-x-4">
             <button
-              onClick={handleSelect}
+              onClick={handleCloseModal}
               className="bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md transition w-[125px] h-[35px] font-font3 ml-2"
             >
               Continuar
             </button>
             <button
-              onClick={handleCloseModal}
+              onClick={handleDelete}
               className="flex items-center justify-center gap-2 bg-red-600 text-white text-[11px] rounded-md transition w-[125px] h-[35px] font-font3"
             >
               <RiDeleteBin6Line size={12} />

@@ -4,7 +4,7 @@ import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 import { HiCheck } from "react-icons/hi";
 import CarModal from "./CarModal";
 
-import { useCarStore } from "../store/carStore";
+import { useCarStore } from "../../store/carStore";
 
 import type { Car } from "../../types/Car";
 import { createFeaturesList } from "../../data/createFeaturesList";
@@ -27,6 +27,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
     logo: string;
     copPrice: string;
     usdPrice: string;
+    code: string;
   } | null>(null);
 
   const handleSelect = () => {
@@ -37,6 +38,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
         logo: car.picture_url.normal,
         copPrice: car.pricing.copAmount,
         usdPrice: car.pricing.usdAmount,
+        code: car.code,
       });
     }
   };
@@ -80,7 +82,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
         <img
           src={car.picture_url.featured}
           alt={`${car.name}`}
-          className="w-90 h-40 mb-4"
+          className="w-90 h-auto mb-4 pt-6"
         />
 
         {car.stars > 4 && (
