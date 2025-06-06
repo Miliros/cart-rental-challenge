@@ -5,19 +5,13 @@ import { IoIosArrowDown } from "react-icons/io";
 import carDataJSON from "../../data/carsJSON.json";
 
 const CardList = () => {
-  useCarData(carDataJSON); // carga los datos al montar
-  console.log(carDataJSON);
+  useCarData(carDataJSON);
 
   const cars = useCarStore((state) => state.filteredCars);
   const setSort = useCarStore((state) => state.setSort);
 
-  const handleActionClick = (id: string) => {
-    alert(`Seleccionaste el vehículo con código: ${id}`);
-  };
-
   return (
     <div className="flex-1 p-4 w-full">
-      {/* Barra de filtros */}
       <div className="flex flex-col md:flex-row items-center justify-center bg-[var(--color-light-gray)] rounded-md mb-6 space-y-6 md:space-y-0 md:space-x-8">
         <h2 className="text-sm text-[var(--color-custom-blue)] font-font3">
           Encontramos {cars.length} vehículos para tu búsqueda
@@ -53,7 +47,6 @@ const CardList = () => {
         </div>
       </div>
 
-      {/* Tarjetas */}
       <div className="flex flex-col space-y-6 w-full">
         {cars.length === 0 ? (
           <div className="flex justify-center items-center w-full h-full">
@@ -68,7 +61,7 @@ const CardList = () => {
             <CardCar
               key={car.code}
               car={car}
-              onActionClick={handleActionClick}
+              // onActionClick={handleActionClick}
             />
           ))
         )}

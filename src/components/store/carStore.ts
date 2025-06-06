@@ -22,6 +22,9 @@ interface CarStoreState {
   ) => void;
   setPriceRange: (min: number, max: number) => void;
   applyFilters: () => void;
+  selectedCars: string[]; // array de códigos
+  selectCar: (code: string) => void;
+  unselectCar: (code: string) => void;
 }
 
 export const useCarStore = create<CarStoreState>((set) => ({
@@ -97,6 +100,18 @@ export const useCarStore = create<CarStoreState>((set) => ({
       const filtered = aplicarFiltros(state.allCars, state.filters);
       return { filteredCars: filtered };
     }),
+  selectedCars: [],
+  selectCar: (code) =>
+    set((state) => {
+      if (!state.selectedCars.includes(code)) {
+        return { selectedCars: [...state.selectedCars, code] };
+      }
+      return state;
+    }),
+  unselectCar: (code) =>
+    set((state) => ({
+      selectedCars: state.selectedCars.filter((c) => c !== code),
+    })),
 }));
 
 function aplicarFiltros(cars: Car[], filters: CarStoreState["filters"]): Car[] {

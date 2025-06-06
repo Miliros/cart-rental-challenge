@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-// import { RiShieldCheckLine } from "react-icons/ri";
+import { RiShieldCheckLine } from "react-icons/ri";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 import { HiCheck } from "react-icons/hi";
+import CarModal from "./CarModal";
+
+import { useCarStore } from "../store/carStore";
 
 import type { Car } from "../../types/Car";
 import { createFeaturesList } from "../../data/createFeaturesList";
@@ -9,11 +12,34 @@ import Tooltip from "./Tooltip";
 
 interface CardCarProps {
   car: Car;
-  onActionClick: (id: string) => void;
 }
 
-const CardCar: React.FC<CardCarProps> = ({ car, onActionClick }) => {
+const CardCar: React.FC<CardCarProps> = ({ car }) => {
   const [showTooltip, setShowTooltip] = useState(false);
+
+  const selectedCars = useCarStore((state) => state.selectedCars);
+  const selectCar = useCarStore((state) => state.selectCar);
+
+  const [modalData, setModalData] = useState<{
+    image: string;
+    logo: string;
+    copPrice: string;
+    usdPrice: string;
+  } | null>(null);
+
+  const handleSelect = () => {
+    if (!selectedCars.includes(car.code)) {
+      selectCar(car.code);
+      setModalData({
+        image: car.picture_url.featured,
+        logo: car.picture_url.normal,
+        copPrice: car.pricing.copAmount,
+        usdPrice: car.pricing.usdAmount,
+      });
+    }
+  };
+
+  const handleCloseModal = () => setModalData(null);
 
   return (
     <div className="flex flex-row justify-between shadow-lg rounded-xl overflow-hidden bg-white border border-gray-200 w-[890px] h-[282px]">
@@ -102,15 +128,20 @@ const CardCar: React.FC<CardCarProps> = ({ car, onActionClick }) => {
             ))}
         </ul>
 
-        <p className="text-[var(--color-custom-green)] text-sm mt-4 flex items-center gap-1 font-font2">
-          <HiCheck className="text-[var(--color-custom-green)]" size={18} />
-          Vehículo agregado a su cotización (1 de 5)
-        </p>
-
-        {/* <p className="text-[var(--color-custom-blue)] text-sm  font-font3 flex items-center gap-2">
-          <RiShieldCheckLine className="text-blue-500" size={18} />
-          Seleccionar este vehículo para cotizar
-        </p> */}
+        {selectedCars.includes(car.code) ? (
+          <p className="text-[var(--color-custom-green)] text-sm mt-4 flex items-center gap-1 font-font2">
+            <HiCheck className="text-[var(--color-custom-green)]" size={18} />
+            Vehículo agregado a su cotización ({selectedCars.length} de 5)
+          </p>
+        ) : (
+          <p className="text-[var(--color-custom-blue)] text-sm mt-4 font-font3 flex items-center gap-2">
+            <RiShieldCheckLine
+              className="text-[var(--color-custom-blue)]"
+              size={15}
+            />
+            Seleccionar este vehículo para cotizar
+          </p>
+        )}
       </div>
       <div className="flex flex-col justify-center items-center p-4 w-[280px] border-l border-gray-200 border-dashed">
         <div className="shadow-lg rounded-xl p-3 w-full relative overflow-visible">
@@ -155,14 +186,28 @@ const CardCar: React.FC<CardCarProps> = ({ car, onActionClick }) => {
               (USD {parseFloat(car.pricing.usdAmount).toLocaleString()})
             </p>
             <button
-              onClick={() => onActionClick(car.code)}
-              className="flex items-center justify-center bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md hover:bg-blue-700 transition w-full h-[35px] mt-4 font-font3"
+              onClick={handleSelect}
+              className={`flex items-center justify-center ${
+                selectedCars.includes(car.code) || selectedCars.length >= 5
+                  ? "bg-[var(--color-custom-disabled)] cursor-not-allowed"
+                  : "bg-[var(--color-custom-blue)] hover:bg-blue-700"
+              } text-white text-[12px] rounded-md transition w-full h-[35px] mt-4 font-font3`}
+              disabled={
+                selectedCars.includes(car.code) || selectedCars.length >= 5
+              }
             >
-              Seleccionar
+              {selectedCars.includes(car.code) ? "Plan Actual" : "Seleccionar"}
             </button>
           </div>
         </div>
       </div>
+      {modalData && (
+        <CarModal
+          modalData={modalData}
+          handleCloseModal={handleCloseModal}
+          handleSelect={handleSelect}
+        />
+      )}
     </div>
   );
 };
