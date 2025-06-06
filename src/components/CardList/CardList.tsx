@@ -9,6 +9,16 @@ const CardList = () => {
 
   const cars = useCarStore((state) => state.filteredCars);
   const setSort = useCarStore((state) => state.setSort);
+  const setHighlightedCars = useCarStore((state) => state.setHighlightedCars);
+  const applyFilters = useCarStore((state) => state.applyFilters);
+
+  const handleShowHighlighted = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      setHighlightedCars();
+    } else {
+      applyFilters(); // Restaura los filtros normales
+    }
+  };
 
   return (
     <div className="flex-1 p-4 w-full">
@@ -21,6 +31,7 @@ const CardList = () => {
             <input
               type="checkbox"
               className="form-checkbox h-5 w-5 text-blue-600"
+              onChange={handleShowHighlighted}
             />
             <span className="ml-4 text-sm text-black font-font1">
               Mostrar destacados primero
@@ -38,7 +49,6 @@ const CardList = () => {
                 <option value="mayor">Mayor precio</option>
                 <option value="menor">Menor precio</option>
               </select>
-
               <span className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
                 <IoIosArrowDown size={10} color="grey" />
               </span>
@@ -50,7 +60,7 @@ const CardList = () => {
       <div className="flex flex-col space-y-6 w-full">
         {cars.length === 0 ? (
           <div className="flex justify-center items-center w-full h-full">
-            <div className="bg-white  rounded-md p-6 text-center shadow-md w-[890px] h-auto">
+            <div className="bg-white rounded-md p-6 text-center shadow-md w-[890px] h-auto">
               <p className="text-[var(--color-custom-blue)] font-font3 text-lg">
                 No hay búsquedas disponibles
               </p>

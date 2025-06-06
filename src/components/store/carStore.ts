@@ -22,7 +22,8 @@ interface CarStoreState {
   ) => void;
   setPriceRange: (min: number, max: number) => void;
   applyFilters: () => void;
-  selectedCars: string[]; // array de códigos
+  setHighlightedCars: () => void;
+  selectedCars: string[];
   selectCar: (code: string) => void;
   unselectCar: (code: string) => void;
 }
@@ -35,7 +36,7 @@ export const useCarStore = create<CarStoreState>((set) => ({
     doors: [],
     large_suitcase: [],
     sort: "none",
-    priceRange: { min: 60, max: 1510000 }, // nuevo campo
+    priceRange: { min: 650, max: 1510000 },
   },
 
   setCars: (cars) =>
@@ -53,6 +54,11 @@ export const useCarStore = create<CarStoreState>((set) => ({
       };
     });
   },
+  setHighlightedCars: () =>
+    set((state) => {
+      const highlightedCars = state.allCars.filter((car) => car.stars > 4);
+      return { filteredCars: highlightedCars };
+    }),
   setFilter: (type, value) =>
     set((state) => {
       let updated: string[];
