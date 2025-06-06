@@ -30,15 +30,15 @@ const CardList = () => {
           <label className="flex items-center text-gray-600">
             <input
               type="checkbox"
-              className="form-checkbox h-5 w-5 text-blue-600"
+              className="form-checkbox  rounded-lg h-5 w-5 text-blue-600"
               onChange={handleShowHighlighted}
             />
-            <span className="ml-4 text-sm text-black font-font1">
+            <span className=" appearance-none  rounded-xl ml-4 text-sm text-black font-font1">
               Mostrar destacados primero
             </span>
           </label>
           <div className="flex space-x-6">
-            <button className="flex items-center justify-center bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md hover:bg-blue-700 transition w-[125px] h-[35px] font-font3 cursor-pointer">
+            <button className="flex items-center justify-center bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md hover:bg-blue-700 transition w-[125px] h-[35px] font-font3">
               Enviar cotización
             </button>
             <div className="relative">

@@ -118,20 +118,20 @@ const FilterSidebar: React.FC = () => {
                 <input
                   type="checkbox"
                   checked={
-                    (filter.id === "category" &&
-                      (filtersState.category.includes(option) ||
-                        filtersState.category.length === 0)) ||
-                    (filter.id === "doors" &&
-                      filtersState.doors.includes(option)) ||
-                    (filter.id === "large_suitcase" &&
-                      filtersState.large_suitcase.includes(option))
+                    filter.id === "category"
+                      ? option === "Todas las categorias"
+                        ? filtersState.category.length === 0
+                        : filtersState.category.includes(option)
+                      : filter.id === "doors"
+                      ? filtersState.doors.includes(option)
+                      : filtersState.large_suitcase.includes(option)
                   }
                   onChange={() => setFilter(filter.id as any, option)}
                   className="h-4 w-4 text-[var(--color-custom-blue)] rounded-full border-[0.125rem] border-slate-300"
                 />
                 <span className="ml-5 font-font1">
                   {option}
-                  <span className="text-gray-500">
+                  <span className="text-gray-500 m-1">
                     ({getOptionCount(filter.id, option)})
                   </span>
                 </span>

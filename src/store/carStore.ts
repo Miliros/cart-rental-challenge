@@ -64,17 +64,19 @@ export const useCarStore = create<CarStoreState>((set) => ({
       let updated: string[];
 
       if (type === "category") {
+        const currentValues = state.filters.category;
+
         if (value === "Todas las categorias") {
           updated = [];
         } else {
-          const currentValues = state.filters.category;
           if (currentValues.includes(value)) {
             updated = currentValues.filter((v) => v !== value);
           } else {
-            updated = [
-              ...currentValues.filter((v) => v !== "Todas las categorias"),
-              value,
-            ];
+            updated = [...currentValues, value];
+          }
+
+          if (updated.length === 0) {
+            updated = [];
           }
         }
       } else {
@@ -90,6 +92,7 @@ export const useCarStore = create<CarStoreState>((set) => ({
         filteredCars: aplicarFiltros(state.allCars, newFilters),
       };
     }),
+
   setPriceRange: (min, max) =>
     set((state) => {
       const newFilters = {
