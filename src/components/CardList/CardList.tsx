@@ -16,7 +16,7 @@ const CardList = () => {
     if (e.target.checked) {
       setHighlightedCars();
     } else {
-      applyFilters(); // Restaura los filtros normales
+      applyFilters();
     }
   };
 

@@ -18,7 +18,6 @@ const ReservationDetails: React.FC<ReservationDetailsProps> = ({
 }) => {
   return (
     <div className="px-8 flex items-center justify-between gap-2 w-full mt-5">
-      {/* Airports Section */}
       <div className="flex items-center justify-center bg-[var(--color-custom-light-gray)] rounded-md flex-1 p-3 gap-[16px]">
         <span className="text-[14px] font-medium text-[var(--color-custom-background)]">
           {origin}
@@ -29,8 +28,7 @@ const ReservationDetails: React.FC<ReservationDetailsProps> = ({
         </span>
       </div>
 
-      {/* Dates Section */}
-      <div className="flex items-center justify-center bg-[var(--color-custom-light-gray)] rounded-md flex-1 p-3 gap-[16px]">
+      <div className="flex items-center justify-center bg-[var(--color-custom-light-gray)] rounded-md flex-1 p-3 gap-[19px]">
         <span className="text-[14px] font-medium text-[var(--color-custom-background)]">
           {startDate}
         </span>
@@ -40,7 +38,6 @@ const ReservationDetails: React.FC<ReservationDetailsProps> = ({
         </span>
       </div>
 
-      {/* Modify Button */}
       <button
         onClick={onModify}
         className="bg-[var(--color-custom-blue)] text-white text-[14px] rounded-md hover:bg-blue-700 transition min-w-[100px] p-3 font-font1"

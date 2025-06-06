@@ -4,6 +4,8 @@ import ReservationDetails from "./components/ReservationDetails/ReservationDetai
 import { StepsNavigation } from "./components/StepNavigation/StepsNavigation";
 import FilterSidebar from "./components/FilterSideBar/FilterSideBar";
 import CardList from "./components/CardList/CardList";
+import { Suscribe } from "./components/Footer/Suscribe";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   const handleModify = () => {
@@ -11,7 +13,7 @@ function App() {
   };
 
   return (
-    <div className="bg-white flex flex-col items-center min-h-screen pt-2">
+    <div className="bg-white flex flex-col items-center min-h-screen pt-2 ">
       <div className="w-7xl bg-white">
         <NavBar />
         <ReservationDetails
@@ -28,11 +30,15 @@ function App() {
       </div>
       <div className="w-full bg-[var(--color-custom-light-gray)] h-full flex justify-center pt-4">
         <div className="pt-1.5 w-[90%]">
-          <div className="flex flex-row  w-full mx-auto h-full bg-transparent">
+          <div className="flex flex-row w-full mx-auto bg-transparent items-start">
             <FilterSidebar />
             <CardList />
           </div>
         </div>
+      </div>
+      <div className="w-full">
+        <Suscribe />
+        <Footer />
       </div>
     </div>
   );

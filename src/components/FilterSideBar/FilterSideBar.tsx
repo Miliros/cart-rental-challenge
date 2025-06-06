@@ -92,7 +92,7 @@ const FilterSidebar: React.FC = () => {
   };
 
   return (
-    <div className="h-full bg-white pt-6 pb-6 rounded-lg shadow-lg">
+    <div className=" bg-white pt-6 pb-6 rounded-lg shadow-lg ">
       <div className="flex items-center mb-4 pl-8">
         <img
           src="images/icons_logos/filter-icon.svg"
@@ -149,7 +149,7 @@ const FilterSidebar: React.FC = () => {
           <AiOutlineDown className="w-3 h-3" color="grey" />
         </div>
 
-        <div className="w-full px-4 space-y-4 p-6">
+        <div className="w-full px-4 space-y-4 p-7">
           <div className="relative w-[92%] h-6 flex items-center pl-3">
             <div
               className="absolute w-full h-1 rounded-full"

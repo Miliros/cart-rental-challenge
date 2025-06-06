@@ -10,21 +10,27 @@ export const NavBar = () => {
       </div>
 
       <ul className="flex flex-col lg:flex-row lg:gap-8 w-full lg:w-auto text-sm  text-center lg:text-left font-bold">
-        <li className="mb-2 lg:mb-0">
+        <li className="mr-3 lg:mb-0">
           <a
             href="#"
-            className="font-[var(--font-font1)] block lg:inline hover:text-blue-600"
+            className="font-[var(--font-font1)] block lg:inline hover:text-blue-600 font-font3"
           >
             Buscar transacción
           </a>
         </li>
-        <li className="mb-2 lg:mb-0">
-          <a href="#" className="block lg:inline hover:text-blue-600 font-bold">
+        <li className="mr-3 lg:mb-0">
+          <a
+            href="#"
+            className="block lg:inline hover:text-blue-600 font-font3"
+          >
             Políticas
           </a>
         </li>
-        <li className="mb-2 lg:mb-0">
-          <a href="#" className="block lg:inline hover:text-blue-600 font-bold">
+        <li className="mb-3 lg:mb-0">
+          <a
+            href="#"
+            className="block lg:inline hover:text-blue-600 font-font3"
+          >
             Contáctanos
           </a>
         </li>

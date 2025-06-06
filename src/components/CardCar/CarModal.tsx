@@ -35,7 +35,6 @@ const CarModal: React.FC<CarModalProps> = ({
         </div>
 
         <div className="flex items-center space-x-8 mr-10 ml-10">
-          {/* Imagen del auto */}
           <div>
             <img
               src={modalData.image}
