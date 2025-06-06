@@ -127,7 +127,7 @@ const FilterSidebar: React.FC = () => {
                       filtersState.large_suitcase.includes(option))
                   }
                   onChange={() => setFilter(filter.id as any, option)}
-                  className="h-4 w-4 p-1 text-[var(--color-custom-blue)] roun"
+                  className="h-4 w-4 text-[var(--color-custom-blue)] rounded-full border-[0.125rem] border-slate-300"
                 />
                 <span className="ml-5 font-font1">
                   {option}

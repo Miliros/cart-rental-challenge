@@ -60,13 +60,13 @@ const CarModal: React.FC<CarModalProps> = ({ modalData, handleCloseModal }) => {
           <div className="flex space-x-4">
             <button
               onClick={handleCloseModal}
-              className="bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md transition w-[125px] h-[35px] font-font3 ml-2"
+              className="bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md transition w-[125px] h-[35px] font-font3 ml-2 cursor-pointer"
             >
               Continuar
             </button>
             <button
               onClick={handleDelete}
-              className="flex items-center justify-center gap-2 bg-red-600 text-white text-[11px] rounded-md transition w-[125px] h-[35px] font-font3"
+              className="flex items-center justify-center gap-2 bg-red-600 text-white text-[11px] rounded-md transition w-[125px] h-[35px] font-font3 cursor-pointer"
             >
               <RiDeleteBin6Line size={12} />
               Eliminar

@@ -35,7 +35,7 @@ export const Suscribe = () => {
                   className="bg-gray-50 border border-none text-sm rounded-lg block w-[360px] p-2"
                 />
               </div>
-              <button className="bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md transition w-[140px] h-[35px] font-font3 mt-7">
+              <button className="bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md transition w-[140px] h-[35px] font-font3 mt-7 cursor-pointer">
                 ¡Suscríbete!
               </button>
             </div>

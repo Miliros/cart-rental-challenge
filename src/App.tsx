@@ -13,7 +13,7 @@ function App() {
   };
 
   return (
-    <div className="bg-white flex flex-col items-center min-h-screen pt-2 ">
+    <div className="bg-white flex flex-col items-center min-h-screen pt-2">
       <div className="w-7xl bg-white">
         <NavBar />
         <ReservationDetails
@@ -28,7 +28,7 @@ function App() {
       <div className="flex items-center justify-center w-full bg-[var(--color-custom-2)] h-[60px] mt-4">
         <StepsNavigation />
       </div>
-      <div className="w-full bg-[var(--color-custom-light-gray)] h-full flex justify-center pt-4">
+      <div className="w-full bg-[var(--color-custom-light-gray)] h-full flex justify-center pt-4 pb-5">
         <div className="pt-1.5 w-[90%]">
           <div className="flex flex-row w-full mx-auto bg-transparent items-start">
             <FilterSidebar />

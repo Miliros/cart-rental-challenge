@@ -44,7 +44,7 @@ export const NavBar = () => {
             className="w-5 h-5"
           />
           <span className="text-xs lg:text-sm font-medium">Español</span>
-          <button className="ml-1 text-sm">
+          <button className="ml-1 text-sm cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4"

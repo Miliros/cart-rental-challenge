@@ -60,7 +60,10 @@ export const Footer = () => {
                 ],
               },
             ].map((section, index) => (
-              <div key={index} className="text-center sm:text-left w-[300px]">
+              <div
+                key={index}
+                className="text-center sm:text-left w-[300px] grid"
+              >
                 <h4 className="font-font3 text-[var(--color-custom-blue)] text-[18px] mb-4 bg">
                   {section.title}
                 </h4>
@@ -107,7 +110,7 @@ export const Footer = () => {
                 className="w-[120px] h-[36PX]"
               />
             </div>
-            <div className="py-5 border-t border-gray-200 ">
+            <div className="py-4 border-t border-gray-200 ">
               <div className="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
                 <span className="font-font1 text-[var(--custom-dark-blue)] text-[13px]">
                   © 2025 - Copyright Unión de Representaciones S.A.S. Todos los

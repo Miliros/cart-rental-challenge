@@ -38,7 +38,7 @@ const CardList = () => {
             </span>
           </label>
           <div className="flex space-x-6">
-            <button className="flex items-center justify-center bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md hover:bg-blue-700 transition w-[125px] h-[35px] font-font3">
+            <button className="flex items-center justify-center bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md hover:bg-blue-700 transition w-[125px] h-[35px] font-font3 cursor-pointer">
               Enviar cotización
             </button>
             <div className="relative">
