@@ -35,7 +35,7 @@ export const useCarStore = create<CarStoreState>((set) => ({
     doors: [],
     large_suitcase: [],
     sort: "none",
-    priceRange: { min: 650000, max: 1510000 }, // nuevo campo
+    priceRange: { min: 60, max: 1510000 }, // nuevo campo
   },
 
   setCars: (cars) =>

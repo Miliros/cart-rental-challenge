@@ -18,6 +18,8 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   const selectedCars = useCarStore((state) => state.selectedCars);
+  const selectionIndex = selectedCars.indexOf(car.code);
+
   const selectCar = useCarStore((state) => state.selectCar);
 
   const [modalData, setModalData] = useState<{
@@ -42,10 +44,14 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
   const handleCloseModal = () => setModalData(null);
 
   return (
-    <div className="flex flex-row justify-between shadow-lg rounded-xl overflow-hidden bg-white border border-gray-200 w-[890px] h-[282px]">
+    <div className="flex flex-row justify-between shadow-lg shadow-bg-[var(--color-custom-disabled)] rounded-xl overflow-hidden bg-white  w-[890px] h-[282px]">
       <div className="flex flex-col items-start pt-5 pl-6 relative w-[26%]">
         <div className="absolute left-0 top-0 h-full w-2 bg-[var(--color-custom-highlight)]" />
-
+        {selectionIndex !== -1 && (
+          <div className="absolute top-5 right-9 bg-[var(--color-custom-green)] text-white rounded-full w-6 h-6 flex items-center justify-center text-[10px] font-bold z-10">
+            {selectionIndex + 1}°
+          </div>
+        )}
         <img
           src={car.picture_url.normal}
           alt={`${car.name} logo`}
@@ -144,7 +150,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
         )}
       </div>
       <div className="flex flex-col justify-center items-center p-4 w-[280px] border-l border-gray-200 border-dashed">
-        <div className="shadow-lg rounded-xl p-3 w-full relative overflow-visible">
+        <div className="shadow-md shadow-bg-[var(--color-custom-disabled)]  rounded-xl p-3 w-full relative overflow-visible">
           <div className="relative flex items-center justify-center gap-2 mb-2">
             <p className="text-sm font-font3 mr-1">Inclusive Light</p>
             <img
