@@ -1,14 +1,20 @@
 import { useEffect } from "react";
-import type { Car } from "../../types/Car";
-import { useCarStore } from "../../store/carStore";
+import { useCarStore } from "../store/carStore";
 
 const useCarData = (jsonData: any): void => {
   const setCars = useCarStore((state) => state.setCars);
+  const applyFilters = useCarStore((state) => state.applyFilters);
+
+  const companyLogos: Record<string, string> = {
+    Avis: "/images/logos/avis-logo.png",
+    Budget: "/images/logos/budget-logo.png",
+    Payless: "/images/logos/payless-logo.png",
+  };
 
   useEffect(() => {
-    const extractedCars: Car[] = [];
+    const extractedCars = [];
     let count = 0;
-    const maxCars = 19;
+    const maxCars = 18;
 
     for (const company in jsonData.cars) {
       for (const car of jsonData.cars[company]) {
@@ -31,6 +37,8 @@ const useCarData = (jsonData: any): void => {
           code: car.code,
           stars: car.stars,
           vehicle_group: car.vehicle_group,
+          company,
+          logo_url: companyLogos[company],
           features: {
             doors: car.features.doors,
             seats: car.features.seats,
@@ -57,7 +65,8 @@ const useCarData = (jsonData: any): void => {
     }
 
     setCars(extractedCars);
-  }, [jsonData, setCars]);
+    applyFilters();
+  }, [jsonData, setCars, applyFilters]);
 };
 
 export default useCarData;

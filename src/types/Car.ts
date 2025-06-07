@@ -4,6 +4,8 @@ export interface Car {
   code: string;
   stars: number;
   vehicle_group: string;
+  company: string;
+  logo_url: string;
   features: {
     doors: string;
     seats: string;
@@ -13,10 +15,16 @@ export interface Car {
     large_suitcase: number;
     small_suitcase: number;
   };
-  picture_url: { normal: string; featured: string };
+  picture_url: {
+    normal: string;
+    featured: string;
+  };
   pricing: {
     usdAmount: string;
     copAmount: string;
   };
-  inclusions: { name: string; description: string }[];
+  inclusions: {
+    name: string;
+    description: string;
+  }[];
 }

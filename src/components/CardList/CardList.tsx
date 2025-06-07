@@ -1,4 +1,4 @@
-import useCarData from "../hooks/useCarData";
+import useCarData from "../../hooks/useCarData";
 import { useCarStore } from "../../store/carStore";
 import CardCar from "../CardCar/CardCar";
 import { IoIosArrowDown } from "react-icons/io";
@@ -19,6 +19,7 @@ const CardList = () => {
       applyFilters();
     }
   };
+  console.log(cars);
 
   return (
     <div className="flex-1 p-4 w-full">
@@ -67,12 +68,8 @@ const CardList = () => {
             </div>
           </div>
         ) : (
-          cars.map((car) => (
-            <CardCar
-              key={car.code}
-              car={car}
-              // onActionClick={handleActionClick}
-            />
+          cars.map((car, index) => (
+            <CardCar key={`${car.code}-${index}`} car={car} />
           ))
         )}
       </div>

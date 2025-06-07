@@ -30,12 +30,18 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
     code: string;
   } | null>(null);
 
+  const companyLogos: Record<string, string> = {
+    Avis: "images/icons_logos/avis-logo.svg",
+    Budget: "images/icons_logos/budget-logo.svg",
+    Payless: "images/icons_logos/payless-logo.svg",
+  };
+
   const handleSelect = () => {
     if (!selectedCars.includes(car.code)) {
       selectCar(car.code);
       setModalData({
         image: car.picture_url.featured,
-        logo: car.picture_url.normal,
+        logo: companyLogos[car.company] || "",
         copPrice: car.pricing.copAmount,
         usdPrice: car.pricing.usdAmount,
         code: car.code,
@@ -55,8 +61,8 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
           </div>
         )}
         <img
-          src={car.picture_url.normal}
-          alt={`${car.name} logo`}
+          src={companyLogos[car.company] || ""}
+          alt={`${car.company} logo`}
           className="w-16 object-contain mb-2"
         />
 
@@ -86,7 +92,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
         />
 
         {car.stars > 4 && (
-          <div className="flex items-center gap-2 mt-2 bg-green-100 text-[var(--color-custom-green)] p-2 rounded-md text-sm font-font2">
+          <div className="flex items-center gap-2 mt-1 bg-green-100 text-[var(--color-custom-green)] p-2 rounded-md text-sm font-font2">
             <img
               src="images/icons_logos/featured-icon.svg"
               alt="Ícono destacado"
