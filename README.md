@@ -5,6 +5,8 @@
 
 
 # Car Rental
+Este proyecto es una implementación de una aplicación de alquiler de autos basada en un diseño proporcionado en Figma. Incluye funcionalidades como filtros por precio, destacados y otras características de los vehículos. Fue desarrollado utilizando React, TypeScript, Tailwind CSS, y Zustand para la gestión de estado.
+
 
 Clona el repositorio con el siguiente comando:
 git clone https://github.com/Miliros/cart-rental-challenge.git
@@ -18,4 +20,11 @@ npm install
 Levanta el servidor de desarrollo ejecutando:
 npm run dev
 
+Tecnologías utilizadas
+React: Para la creación de componentes y el manejo de la interfaz.
 
+TypeScript: Para garantizar tipado estático y mayor robustez en el desarrollo.
+
+Tailwind CSS: Para un diseño rápido y flexible siguiendo el diseño proporcionado.
+
+Zustand: Para gestionar el estado global de la aplicación de manera eficiente.
