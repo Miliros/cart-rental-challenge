@@ -44,7 +44,7 @@ const CarModal: React.FC<CarModalProps> = ({ modalData, handleCloseModal }) => {
             <img
               src={modalData.image}
               alt="Car Image"
-              className="w-32 h-auto"
+              className="w-32 h-auto mr-14"
             />
           </div>
 
@@ -57,7 +57,7 @@ const CarModal: React.FC<CarModalProps> = ({ modalData, handleCloseModal }) => {
             </p>
           </div>
 
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 ml-8">
             <button
               onClick={handleCloseModal}
               className="bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md transition w-[125px] h-[35px] font-font3 ml-2 cursor-pointer"

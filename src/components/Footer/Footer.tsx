@@ -41,6 +41,7 @@ export const Footer = () => {
               {
                 title: "Instructivos",
                 items: ["Disney", "Universal", "Avis Budget", "Terrawind"],
+                className: "pl-7",
               },
               {
                 title: "Información",
@@ -62,14 +63,16 @@ export const Footer = () => {
             ].map((section, index) => (
               <div
                 key={index}
-                className="text-center sm:text-left w-[300px] grid"
+                className={`text-center sm:text-left w-[300px] grid  ${
+                  section.className || ""
+                }`}
               >
                 <h4 className="font-font3 text-[var(--color-custom-blue)] text-[18px] mb-4 bg">
                   {section.title}
                 </h4>
-                <ul className="text-sm space-y-3 ">
+                <ul className="text-sm space-y-3 justify-start">
                   {section.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="w-[230px]">
+                    <li key={itemIndex} className="w-[220px]">
                       <a
                         href="javascript:;"
                         className="font-font1 text-[var(--custom-dark-blue)] text-[13px] "

@@ -1,29 +1,39 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { AiOutlineDown } from "react-icons/ai";
 import { useCarStore } from "../../store/carStore";
+import filters from "./filters";
 
 const FilterSidebar: React.FC = () => {
   const allCars = useCarStore((state) => state.allCars);
   const setPriceRange = useCarStore((state) => state.setPriceRange);
+
   const filtersState = useCarStore((state) => state.filters);
   const setFilter = useCarStore((state) => state.setFilter);
 
-  const prices = allCars.map((car) => parseFloat(car.pricing.copAmount));
-  const minSliderLimit = Math.floor(Math.min(...prices));
-  const maxSliderLimit = Math.ceil(Math.max(...prices));
-
+  const prices = useMemo(
+    () => allCars.map((car) => parseFloat(car.pricing.copAmount)),
+    [allCars]
+  );
+  const minSliderLimit = useMemo(
+    () => (prices.length > 0 ? Math.floor(Math.min(...prices)) : 0),
+    [prices]
+  );
+  const maxSliderLimit = useMemo(
+    () => (prices.length > 0 ? Math.ceil(Math.max(...prices)) : 1000000),
+    [prices]
+  );
   const [minPrice, setMinPrice] = useState<number>(minSliderLimit);
   const [maxPrice, setMaxPrice] = useState<number>(maxSliderLimit);
+  // console.log(minSliderLimit, "aca");
 
   useEffect(() => {
     setMinPrice(minSliderLimit);
     setMaxPrice(maxSliderLimit);
-    setPriceRange(minSliderLimit, maxSliderLimit);
   }, [minSliderLimit, maxSliderLimit]);
 
   useEffect(() => {
     setPriceRange(minPrice, maxPrice);
-  }, [minPrice, maxPrice]);
+  }, [minPrice, maxPrice, setPriceRange]);
 
   const getOptionCount = (filterId: string, option: string) => {
     if (filterId === "category") {
@@ -50,37 +60,6 @@ const FilterSidebar: React.FC = () => {
     return 0;
   };
 
-  const filters = [
-    {
-      id: "category",
-      title: "Categoría del auto",
-      options: [
-        "Todas las categorias",
-        "Económico",
-        "Compacto",
-        "Intermedio",
-        "Estándar",
-        "SUV",
-        "Van",
-        "Premium",
-        "Lujo",
-        "Convertible",
-        "Eléctrico",
-        "Híbrido",
-      ],
-    },
-    {
-      id: "large_suitcase",
-      title: "Capacidad de maletas",
-      options: ["1-2 maletas", "3-4 maletas"],
-    },
-    {
-      id: "doors",
-      title: "Cantidad de puertas",
-      options: ["2 puertas", "4 puertas"],
-    },
-  ];
-
   const getSliderTrackStyle = () => {
     const min = minSliderLimit;
     const max = maxSliderLimit;
@@ -90,9 +69,11 @@ const FilterSidebar: React.FC = () => {
       background: `linear-gradient(to right, #e5e7eb ${start}%, var(--color-custom-blue) ${start}%, var(--color-custom-blue) ${end}%, #e5e7eb ${end}%)`,
     };
   };
+  console.log(maxPrice);
+  console.log(minPrice, "minimo");
 
   return (
-    <div className=" bg-white pt-6 pb-6 rounded-lg shadow-lg ">
+    <div className=" bg-white pt-6 pb-6 rounded-lg shadow-lg mr-4">
       <div className="flex items-center mb-4 pl-8">
         <img
           src="images/icons_logos/filter-icon.svg"
@@ -158,12 +139,15 @@ const FilterSidebar: React.FC = () => {
             <input
               type="range"
               min={minSliderLimit}
-              max={maxSliderLimit}
+              max={maxPrice - 10000} // Máximo del slider izquierdo depende del slider derecho
               step={10000}
               value={minPrice}
-              onChange={(e) =>
-                setMinPrice(Math.min(Number(e.target.value), maxPrice - 10000))
-              }
+              onChange={(e) => {
+                const value = Number(e.target.value);
+                if (value < maxPrice - 10000) {
+                  setMinPrice(value);
+                }
+              }}
               className="absolute w-full appearance-none bg-transparent
                 [&::-webkit-slider-thumb]:appearance-none 
                 [&::-webkit-slider-thumb]:h-5 
@@ -177,13 +161,14 @@ const FilterSidebar: React.FC = () => {
             />
             <input
               type="range"
-              min={minSliderLimit}
+              min={minPrice + 10000} // Mínimo del slider derecho depende del slider izquierdo
               max={maxSliderLimit}
               step={10000}
               value={maxPrice}
-              onChange={(e) =>
-                setMaxPrice(Math.max(Number(e.target.value), minPrice + 10000))
-              }
+              onChange={(e) => {
+                const val = Math.max(Number(e.target.value), minPrice + 10000);
+                setMaxPrice(val);
+              }}
               className="absolute w-full appearance-none bg-transparent
                 [&::-webkit-slider-thumb]:appearance-none
                 [&::-webkit-slider-thumb]:h-5

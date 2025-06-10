@@ -14,7 +14,8 @@ function App() {
 
   return (
     <div className="bg-white flex flex-col items-center min-h-screen pt-2">
-      <div className="w-7xl bg-white">
+      {/* Cambiar `w-7xl` por `max-w-7xl` */}
+      <div className="max-w-7xl w-full bg-white">
         <NavBar />
         <ReservationDetails
           origin="Miami International Airport (MIA)"
@@ -24,10 +25,10 @@ function App() {
           onModify={handleModify}
         />
       </div>
-
-      <div className="flex items-center justify-center w-full bg-[var(--color-custom-2)] h-[60px] mt-4">
+      <div className="flex items-center justify-center w-full bg-[var(--color-custom-2)] min-h-[60px] h-auto mt-4 py-2">
         <StepsNavigation />
       </div>
+
       <div className="w-full bg-[var(--color-custom-light-gray)] h-full flex justify-center pt-4 pb-5">
         <div className="pt-1.5 w-[90%]">
           <div className="flex flex-row w-full mx-auto bg-transparent items-start">

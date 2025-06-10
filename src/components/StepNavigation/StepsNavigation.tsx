@@ -1,7 +1,7 @@
 export const StepsNavigation = () => {
   return (
-    <div className="w-[70%] mx-auto bg-[var(--color-custom-2)] rounded-lg flex items-center justify-between py-4">
-      <div className="flex items-center gap-[40px]">
+    <div className="w-[70%] max-w-full mx-auto bg-[var(--color-custom-2)] rounded-lg flex flex-wrap items-center justify-center py-4 gap-4 px-4 sm:px-0">
+      <div className="flex items-center gap-3 sm:gap-[40px] basis-[98%] sm:basis-auto">
         <div className="text-[14px] font-bold text-amber-50 flex items-center">
           Selecciona tu vehículo
         </div>
@@ -14,8 +14,8 @@ export const StepsNavigation = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-[40px]">
-        <div className="text-[14px] text-[var(--color-custom-highlight)] flex items-center">
+      <div className="flex items-center gap-3 sm:gap-[40px] basis-[98%] sm:basis-auto">
+        <div className="text-[14px] text-[var(--color-custom-highlight)] flex items-center ">
           Agrega equipamiento adicional
         </div>
         <div className="flex items-center">
@@ -27,8 +27,8 @@ export const StepsNavigation = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-[40px]">
-        <div className="text-[14px] text-[var(--color-custom-highlight)] flex items-center">
+      <div className="flex items-center gap-3 sm:gap-[40px] basis-[98%] sm:basis-auto">
+        <div className="text-[14px] text-[var(--color-custom-highlight)] flex items-center ">
           Información del conductor
         </div>
         <div className="flex items-center">
@@ -40,7 +40,7 @@ export const StepsNavigation = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-[40px]">
+      <div className="flex items-center gap-3 sm:gap-[40px] basis-[98%] sm:basis-auto">
         <div className="text-[14px] text-[var(--color-custom-highlight)] flex items-center">
           Confirmación de la reserva
         </div>

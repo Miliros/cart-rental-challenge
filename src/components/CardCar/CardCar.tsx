@@ -52,11 +52,11 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
   const handleCloseModal = () => setModalData(null);
 
   return (
-    <div className="flex flex-row justify-between shadow-lg shadow-bg-[var(--color-custom-disabled)] rounded-xl overflow-hidden bg-white  w-[890px] h-[282px]">
-      <div className="flex flex-col items-start pt-5 pl-6 relative w-[26%]">
-        <div className="absolute left-0 top-0 h-full w-2 bg-[var(--color-custom-highlight)]" />
+    <div className="flex flex-row  justify-between shadow-lg shadow-bg-[var(--color-custom-disabled)] rounded-xl  bg-white  w-[895px] h-[282px]">
+      <div className="flex flex-col items-start pt-5 pl-6 relative w-[24%] ">
+        <div className="absolute left-0 top-0 h-full w-2 bg-[var(--color-custom-blue)]" />
         {selectionIndex !== -1 && (
-          <div className="absolute top-5 right-9 bg-[var(--color-custom-green)] text-white rounded-full w-6 h-6 flex items-center justify-center text-[10px] font-bold z-10">
+          <div className="absolute top-5 right-4 bg-[var(--color-custom-green)] text-white rounded-full w-6 h-6 flex items-center justify-center text-[10px] font-bold z-10">
             {selectionIndex + 1}°
           </div>
         )}
@@ -88,7 +88,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
         <img
           src={car.picture_url.featured}
           alt={`${car.name}`}
-          className="w-90 h-auto mb-4 pt-6"
+          className="w-50 h-auto mb-4 pt-6"
         />
 
         {car.stars > 4 && (
@@ -103,7 +103,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
         )}
       </div>
 
-      <div className="flex flex-col justify-between p-6 flex-grow border-gray-200 w-[25%]">
+      <div className="flex flex-col justify-between p-6 flex-grow border-gray-200 w-[14%] ">
         <div>
           <p className="text-[12px] text-[var(--color-custom-bold)] font-font3 tracking-wider">
             GRUPO {car.vehicle_group} - {car.code}
@@ -157,10 +157,10 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
           </p>
         )}
       </div>
-      <div className="flex flex-col justify-center items-center p-4 w-[280px] border-l border-gray-200 border-dashed">
-        <div className="shadow-md shadow-bg-[var(--color-custom-disabled)]  rounded-xl p-3 w-full relative overflow-visible">
+      <div className="flex flex-col justify-center items-center p-4 w-[320px] border-l border-gray-200 border-dashed">
+        <div className="shadow-md shadow-bg-[var(--color-custom-disabled)]  rounded-xl p-4 w-full relative overflow-visible">
           <div className="relative flex items-center justify-center gap-2 mb-2">
-            <p className="text-sm font-font3 mr-1">Inclusive Light</p>
+            <p className="text[16px] font-font3 mr-1">Inclusive Light</p>
             <img
               src="images/icons_logos/info-icon.svg"
               alt="Información adicional"
