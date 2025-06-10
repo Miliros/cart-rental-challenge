@@ -54,7 +54,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
   return (
     <div className="flex flex-row  justify-between shadow-lg shadow-bg-[var(--color-custom-disabled)] rounded-xl  bg-white  w-[895px] h-[282px]">
       <div className="flex flex-col items-start pt-5 pl-6 relative w-[24%] ">
-        <div className="absolute left-0 top-0 h-full w-2 bg-[var(--color-custom-blue)]" />
+        <div className="absolute left-0 top-0 h-full w-2 bg-[var(--color-custom-highlight)] rounded-l-md " />{" "}
         {selectionIndex !== -1 && (
           <div className="absolute top-5 right-4 bg-[var(--color-custom-green)] text-white rounded-full w-6 h-6 flex items-center justify-center text-[10px] font-bold z-10">
             {selectionIndex + 1}°
@@ -65,7 +65,6 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
           alt={`${car.company} logo`}
           className="w-16 object-contain mb-2"
         />
-
         <div className="flex items-center gap-1">
           {[...Array(car.stars)].map((_, index) => (
             <img
@@ -84,13 +83,11 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
             />
           ))}
         </div>
-
         <img
           src={car.picture_url.featured}
           alt={`${car.name}`}
           className="w-50 h-auto mb-4 pt-6"
         />
-
         {car.stars > 4 && (
           <div className="flex items-center gap-2 mt-1 bg-green-100 text-[var(--color-custom-green)] p-2 rounded-md text-sm font-font2">
             <img

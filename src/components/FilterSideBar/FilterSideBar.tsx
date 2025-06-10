@@ -73,7 +73,7 @@ const FilterSidebar: React.FC = () => {
   console.log(minPrice, "minimo");
 
   return (
-    <div className=" bg-white pt-6 pb-6 rounded-lg shadow-lg mr-4">
+    <div className="w-full bg-white pt-6 pb-6 rounded-lg shadow-lg mr-4">
       <div className="flex items-center mb-4 pl-8">
         <img
           src="images/icons_logos/filter-icon.svg"
@@ -122,7 +122,7 @@ const FilterSidebar: React.FC = () => {
         </div>
       ))}
 
-      <div className="flex flex-col items-center mb-4">
+      <div className="flex flex-col items-center mb-4 ">
         <div className="flex items-center justify-between w-full cursor-pointer bg-[var(--color-custom-filters)] pr-6 pt-4 pb-4 pl-8">
           <h3 className="text-[15px] text-[var(--color-custom-blue)] font-font3">
             Fijar un rango de precio (COP)
@@ -183,7 +183,7 @@ const FilterSidebar: React.FC = () => {
           </div>
 
           <div className="flex flex-col gap-3 pl-2">
-            <div className="flex rounded-lg border border-[var(--color-custom-gray)] overflow-hidden">
+            <div className="flex rounded-lg border border-[var(--color-custom-gray)] overflow-hidden min-w-3xs">
               <div className="bg-gray-200 flex items-center px-3 py-2">
                 <span className="text-[var(--color-custom-bold)] font-font3 text-[12px]">
                   COP
