@@ -42,8 +42,9 @@ export const Suscribe = () => {
 
             <div className="flex flex-row items-start mt-4">
               <input
-                checked
-                className="w-4 h-4 bg-white rounded mr-3 text[12px]"
+                type="checkbox"
+                defaultChecked
+                className="w-4 h-4 rounded mr-3 bg-white border-2 border-blue-500 checked:bg-white checked:border-blue-500 "
               />
 
               <p className="text-[12px] text-[var(--color-custom-blue)] leading-tight font-font1">

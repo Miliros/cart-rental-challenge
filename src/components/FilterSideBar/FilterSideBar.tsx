@@ -37,7 +37,7 @@ const FilterSidebar: React.FC = () => {
   };
 
   return (
-    <div className="w-[340px] max-w-[340px] bg-white pt-6 pb-6 rounded-lg shadow-lg mr-4">
+    <div className="w-[290px] max-w-[290px] bg-white pt-6 pb-6 rounded-lg shadow-lg mr-4">
       <div className="flex items-center mb-4 pl-8">
         <img
           src="images/icons_logos/filter-icon.svg"

@@ -14,7 +14,6 @@ function App() {
 
   return (
     <div className="bg-white flex flex-col items-center min-h-screen pt-2">
-      {/* Cambiar `w-7xl` por `max-w-7xl` */}
       <div className="max-w-7xl w-full bg-white">
         <NavBar />
         <ReservationDetails
@@ -30,7 +29,7 @@ function App() {
       </div>
 
       <div className="w-full bg-[var(--color-custom-light-gray)] h-full flex justify-center pt-4 pb-5">
-        <div className="pt-1.5 w-[90%]">
+        <div className="pt-1.5 w-[89%] sm:w-[89%] md:w-[89%] lg:w-[89%] xl:w-auto">
           <div className="flex flex-row w-full mx-auto bg-transparent items-start">
             <FilterSidebar />
             <CardList />
