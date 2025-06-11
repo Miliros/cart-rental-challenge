@@ -17,7 +17,7 @@
       "door_count": null,
       "picture_url": {
         "normal": "/images/cars/2020-kia-rio-s-sedan-black.png",
-        "featured": "/public/images/cars/2020-kia-rio-s-sedan-white.png"
+        "featured": "/images/cars/2020-kia-rio-s-sedan-white.png"
       },
       "stars": 3,
       "features": {
@@ -626,8 +626,8 @@
       "drive_type": null,
       "door_count": null,
       "picture_url": {
-        "normal": "/public/images/cars/2020-kia-rio-s-sedan-white.png",
-        "featured": "/public/images/cars/2021-ford-edge-titanium-suv-black.png"
+        "normal": "/images/cars/2020-kia-rio-s-sedan-white.png",
+        "featured": "/images/cars/2021-ford-edge-titanium-suv-black.png"
       },
       "stars": 3,
       "features": {
@@ -1236,7 +1236,7 @@
       "drive_type": null,
       "door_count": null,
       "picture_url": {
-        "normal": "/public/images/cars/2021-ford-edge-titanium-suv-black.png",
+        "normal": "/images/cars/2021-ford-edge-titanium-suv-black.png",
         "featured": "/images/cars/2021-ford-edge-titanium-suv-black.png"
       },
       "stars": 3,
@@ -1847,7 +1847,7 @@
       "door_count": null,
       "picture_url": {
         "normal": "/images/cars/2021-ford-edge-titanium-suv-black.png",
-        "featured": "/public/images/cars/2021-kia-soul-s-5door-hatchback-black.png"
+        "featured": "/images/cars/2021-kia-soul-s-5door-hatchback-black.png"
       },
       "stars": 4,
       "features": {
@@ -2456,8 +2456,8 @@
       "drive_type": null,
       "door_count": null,
       "picture_url": {
-        "normal": "/public/images/cars/2021-kia-soul-s-5door-hatchback-black.png",
-        "featured": "/public/images/cars/2021-tesla-model-3-standard-range-plus-sedan-black.png"
+        "normal": "/images/cars/2021-kia-soul-s-5door-hatchback-black.png",
+        "featured": "/images/cars/2021-tesla-model-3-standard-range-plus-sedan-black.png"
       },
       "stars": 5,
       "features": {
@@ -3066,7 +3066,7 @@
       "drive_type": null,
       "door_count": null,
       "picture_url": {
-        "normal": "/public/images/cars/2021-tesla-model-3-standard-range-plus-sedan-black.png",
+        "normal": "/images/cars/2021-tesla-model-3-standard-range-plus-sedan-black.png",
         "featured": "/images/cars/2021-toyota-camry-se-sedan-white.png"
       },
       "stars": 3,
@@ -5431,7 +5431,7 @@
       "door_count": null,
       "picture_url": {
         "normal": "/images/cars/2020-kia-rio-s-sedan-black.png",
-        "featured": "/public/images/cars/2020-kia-rio-s-sedan-white.png"
+        "featured": "/images/cars/2020-kia-rio-s-sedan-white.png"
       },
       "stars": 3,
       "features": {
@@ -5868,8 +5868,8 @@
       "drive_type": null,
       "door_count": null,
       "picture_url": {
-        "normal": "/public/images/cars/2020-kia-rio-s-sedan-white.png",
-        "featured": "/public/images/cars/2021-ford-edge-titanium-suv-black.png"
+        "normal": "images/cars/2020-kia-rio-s-sedan-white.png",
+        "featured": "/images/cars/2021-ford-edge-titanium-suv-black.png"
       },
       "stars": 4,
       "features": {
@@ -6308,7 +6308,7 @@
       "drive_type": null,
       "door_count": null,
       "picture_url": {
-        "normal": "/public/images/cars/2021-ford-edge-titanium-suv-black.png",
+        "normal": "/images/cars/2021-ford-edge-titanium-suv-black.png",
         "featured": "/images/cars/2021-ford-edge-titanium-suv-black.png"
       },
       "stars": 3,
@@ -6505,7 +6505,7 @@
       "door_count": null,
       "picture_url": {
         "normal": "/images/cars/2021-ford-edge-titanium-suv-black.png",
-        "featured": "/public/images/cars/2021-kia-soul-s-5door-hatchback-black.png"
+        "featured": "/images/cars/2021-kia-soul-s-5door-hatchback-black.png"
       },
       "stars": 5,
       "features": {
@@ -6700,8 +6700,8 @@
       "drive_type": null,
       "door_count": null,
       "picture_url": {
-        "normal": "/public/images/cars/2021-kia-soul-s-5door-hatchback-black.png",
-        "featured": "/public/images/cars/2021-tesla-model-3-standard-range-plus-sedan-black.png"
+        "normal": "/images/cars/2021-kia-soul-s-5door-hatchback-black.png",
+        "featured": "/images/cars/2021-tesla-model-3-standard-range-plus-sedan-black.png"
       },
       "stars": 3,
       "features": {
@@ -6896,7 +6896,7 @@
       "drive_type": null,
       "door_count": null,
       "picture_url": {
-        "normal": "/public/images/cars/2021-tesla-model-3-standard-range-plus-sedan-black.png",
+        "normal": "/images/cars/2021-tesla-model-3-standard-range-plus-sedan-black.png",
         "featured": "/images/cars/2021-toyota-camry-se-sedan-white.png"
       },
       "stars": 3,

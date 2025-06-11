@@ -1,39 +1,15 @@
-import { useState, useEffect, useMemo } from "react";
 import { AiOutlineDown } from "react-icons/ai";
 import { useCarStore } from "../../store/carStore";
+
 import filters from "./filters";
+import FilterPriceSlider from "./FilterPriceSlider";
 
 const FilterSidebar: React.FC = () => {
   const allCars = useCarStore((state) => state.allCars);
-  const setPriceRange = useCarStore((state) => state.setPriceRange);
+  const { priceRange } = useCarStore((state) => state.filters);
 
   const filtersState = useCarStore((state) => state.filters);
   const setFilter = useCarStore((state) => state.setFilter);
-
-  const prices = useMemo(
-    () => allCars.map((car) => parseFloat(car.pricing.copAmount)),
-    [allCars]
-  );
-  const minSliderLimit = useMemo(
-    () => (prices.length > 0 ? Math.floor(Math.min(...prices)) : 0),
-    [prices]
-  );
-  const maxSliderLimit = useMemo(
-    () => (prices.length > 0 ? Math.ceil(Math.max(...prices)) : 1000000),
-    [prices]
-  );
-  const [minPrice, setMinPrice] = useState<number>(minSliderLimit);
-  const [maxPrice, setMaxPrice] = useState<number>(maxSliderLimit);
-  // console.log(minSliderLimit, "aca");
-
-  useEffect(() => {
-    setMinPrice(minSliderLimit);
-    setMaxPrice(maxSliderLimit);
-  }, [minSliderLimit, maxSliderLimit]);
-
-  useEffect(() => {
-    setPriceRange(minPrice, maxPrice);
-  }, [minPrice, maxPrice, setPriceRange]);
 
   const getOptionCount = (filterId: string, option: string) => {
     if (filterId === "category") {
@@ -60,20 +36,8 @@ const FilterSidebar: React.FC = () => {
     return 0;
   };
 
-  const getSliderTrackStyle = () => {
-    const min = minSliderLimit;
-    const max = maxSliderLimit;
-    const start = ((minPrice - min) / (max - min)) * 100;
-    const end = ((maxPrice - min) / (max - min)) * 100;
-    return {
-      background: `linear-gradient(to right, #e5e7eb ${start}%, var(--color-custom-blue) ${start}%, var(--color-custom-blue) ${end}%, #e5e7eb ${end}%)`,
-    };
-  };
-  console.log(maxPrice);
-  console.log(minPrice, "minimo");
-
   return (
-    <div className="w-full bg-white pt-6 pb-6 rounded-lg shadow-lg mr-4">
+    <div className="w-[340px] max-w-[340px] bg-white pt-6 pb-6 rounded-lg shadow-lg mr-4">
       <div className="flex items-center mb-4 pl-8">
         <img
           src="images/icons_logos/filter-icon.svg"
@@ -124,62 +88,17 @@ const FilterSidebar: React.FC = () => {
 
       <div className="flex flex-col items-center mb-4 ">
         <div className="flex items-center justify-between w-full cursor-pointer bg-[var(--color-custom-filters)] pr-6 pt-4 pb-4 pl-8">
-          <h3 className="text-[15px] text-[var(--color-custom-blue)] font-font3">
+          <h3 className="text-[16px] text-[var(--color-custom-blue)] whitespace-nowrap font-font3">
             Fijar un rango de precio (COP)
           </h3>
-          <AiOutlineDown className="w-3 h-3" color="grey" />
+          <AiOutlineDown className="w-3 h-3 ml-3" color="grey" />
         </div>
 
         <div className="w-full px-4 space-y-4 p-7">
           <div className="relative w-[92%] h-6 flex items-center pl-3">
-            <div
-              className="absolute w-full h-1 rounded-full"
-              style={getSliderTrackStyle()}
-            />
-            <input
-              type="range"
-              min={minSliderLimit}
-              max={maxPrice - 10000} // Máximo del slider izquierdo depende del slider derecho
-              step={10000}
-              value={minPrice}
-              onChange={(e) => {
-                const value = Number(e.target.value);
-                if (value < maxPrice - 10000) {
-                  setMinPrice(value);
-                }
-              }}
-              className="absolute w-full appearance-none bg-transparent
-                [&::-webkit-slider-thumb]:appearance-none 
-                [&::-webkit-slider-thumb]:h-5 
-                [&::-webkit-slider-thumb]:w-5 
-                [&::-webkit-slider-thumb]:bg-white 
-                [&::-webkit-slider-thumb]:border-5
-                [&::-webkit-slider-thumb]:border-[var(--color-custom-blue)] 
-                [&::-webkit-slider-thumb]:rounded-full 
-                [&::-webkit-slider-thumb]:cursor-pointer 
-                pointer-events-auto"
-            />
-            <input
-              type="range"
-              min={minPrice + 10000} // Mínimo del slider derecho depende del slider izquierdo
-              max={maxSliderLimit}
-              step={10000}
-              value={maxPrice}
-              onChange={(e) => {
-                const val = Math.max(Number(e.target.value), minPrice + 10000);
-                setMaxPrice(val);
-              }}
-              className="absolute w-full appearance-none bg-transparent
-                [&::-webkit-slider-thumb]:appearance-none
-                [&::-webkit-slider-thumb]:h-5
-                [&::-webkit-slider-thumb]:w-5
-                [&::-webkit-slider-thumb]:bg-white
-                [&::-webkit-slider-thumb]:border-5
-                [&::-webkit-slider-thumb]:border-[var(--color-custom-blue)]
-                [&::-webkit-slider-thumb]:rounded-full
-                [&::-webkit-slider-thumb]:cursor-pointer
-                pointer-events-auto"
-            />
+            <div className="absolute w-full h-1 rounded-full" />
+
+            <FilterPriceSlider />
           </div>
 
           <div className="flex flex-col gap-3 pl-2">
@@ -196,7 +115,7 @@ const FilterSidebar: React.FC = () => {
                 <input
                   type="text"
                   readOnly
-                  value={minPrice.toLocaleString("es-CO", {
+                  value={priceRange.min.toLocaleString("es-CO", {
                     style: "decimal",
                     minimumFractionDigits: 2,
                   })}
@@ -218,7 +137,7 @@ const FilterSidebar: React.FC = () => {
                 <input
                   type="text"
                   readOnly
-                  value={maxPrice.toLocaleString("es-CO", {
+                  value={priceRange.max.toLocaleString("es-CO", {
                     style: "decimal",
                     minimumFractionDigits: 2,
                   })}
