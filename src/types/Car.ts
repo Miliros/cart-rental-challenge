@@ -27,4 +27,5 @@ export interface Car {
     name: string;
     description: string;
   }[];
+  uniqueId: string;
 }

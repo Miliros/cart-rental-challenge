@@ -18,7 +18,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   const selectedCars = useCarStore((state) => state.selectedCars);
-  const selectionIndex = selectedCars.indexOf(car.code);
+  const selectionIndex = selectedCars.indexOf(car.uniqueId || ""); // Usa una cadena vacía como valor predeterminado
 
   const selectCar = useCarStore((state) => state.selectCar);
 
@@ -37,14 +37,14 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
   };
 
   const handleSelect = () => {
-    if (!selectedCars.includes(car.code)) {
-      selectCar(car.code);
+    if (!selectedCars.includes(car.uniqueId)) {
+      selectCar(car.uniqueId);
       setModalData({
         image: car.picture_url.featured,
         logo: companyLogos[car.company] || "",
         copPrice: car.pricing.copAmount,
         usdPrice: car.pricing.usdAmount,
-        code: car.code,
+        code: car.uniqueId,
       });
     }
   };

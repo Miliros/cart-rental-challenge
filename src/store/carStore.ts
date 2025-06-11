@@ -41,8 +41,15 @@ export const useCarStore = create<CarStoreState>((set) => ({
 
   setCars: (cars) =>
     set((state) => {
-      const newState = { ...state, allCars: cars };
-      return { ...newState, filteredCars: aplicarFiltros(cars, state.filters) };
+      const updatedCars = cars.map((car, index) => ({
+        ...car,
+        uniqueId: `${car.code}-${index}`,
+      }));
+      return {
+        ...state,
+        allCars: updatedCars,
+        filteredCars: aplicarFiltros(updatedCars, state.filters),
+      };
     }),
 
   setSort: (sort) => {
@@ -110,16 +117,14 @@ export const useCarStore = create<CarStoreState>((set) => ({
       return { filteredCars: filtered };
     }),
   selectedCars: [],
-  selectCar: (code) =>
-    set((state) => {
-      if (!state.selectedCars.includes(code)) {
-        return { selectedCars: [...state.selectedCars, code] };
-      }
-      return state;
-    }),
-  unselectCar: (code) =>
+  selectCar: (uniqueId) =>
     set((state) => ({
-      selectedCars: state.selectedCars.filter((c) => c !== code),
+      selectedCars: [...state.selectedCars, uniqueId],
+    })),
+
+  unselectCar: (uniqueId) =>
+    set((state) => ({
+      selectedCars: state.selectedCars.filter((id) => id !== uniqueId),
     })),
 }));
 
