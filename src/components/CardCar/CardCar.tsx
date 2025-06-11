@@ -199,7 +199,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
             <button
               onClick={handleSelect}
               className={`flex items-center justify-center ${
-                selectedCars.includes(car.code) || selectedCars.length >= 5
+                selectedCars.includes(car.uniqueId) || selectedCars.length >= 5
                   ? "bg-[var(--color-custom-disabled)] cursor-not-allowed"
                   : "bg-[var(--color-custom-blue)] hover:bg-blue-700"
               } text-white text-[12px] rounded-md transition w-full h-[35px] mt-4 font-font3 cursor-pointer`}
@@ -207,7 +207,9 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
                 selectedCars.includes(car.code) || selectedCars.length >= 5
               }
             >
-              {selectedCars.includes(car.code) ? "Plan Actual" : "Seleccionar"}
+              {selectedCars.includes(car.uniqueId)
+                ? "Plan Actual"
+                : "Seleccionar"}
             </button>
           </div>
         </div>
