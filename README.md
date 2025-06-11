@@ -9,6 +9,8 @@
 
 # Car Rental.
 deploy: 🌐 https://cart-rental-challenge.vercel.app/
+
+
 Este proyecto es una implementación de una aplicación de alquiler de autos basada en un diseño proporcionado en Figma. Incluye funcionalidades como filtros por precio, destacados y otras características de los vehículos. Fue desarrollado utilizando React, TypeScript, Tailwind CSS, y Zustand para la gestión de estado.
 
 
