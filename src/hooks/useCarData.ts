@@ -32,6 +32,7 @@ const useCarData = (jsonData: any): void => {
           }));
 
         extractedCars.push({
+          uniqueId: `${car.code}-${count}`,
           name: car.name,
           name_details: car.name_details,
           code: car.code,
@@ -59,6 +60,7 @@ const useCarData = (jsonData: any): void => {
           },
           inclusions,
         });
+
         count++;
       }
       if (count >= maxCars) break;
