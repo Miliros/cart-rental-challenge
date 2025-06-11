@@ -3,7 +3,7 @@ export const Suscribe = () => {
     <div className="flex flex-col bg-[var(--color-custom-2)] w-full h-auto justify-center p-8 pl-22">
       <div className="w-[100%] p-6">
         <div className="flex flex-row items-start justify-center space-x-6 ">
-          <div className="w-[60]">
+          <div className="w-auto">
             <p className="font-font3 text-[16px] text-white leading-tight mb-4">
               ¿Quieres estar al tanto de nuestras novedades?
             </p>
