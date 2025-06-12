@@ -36,7 +36,7 @@ export const useCarStore = create<CarStoreState>((set) => ({
     doors: [],
     large_suitcase: [],
     sort: "none",
-    priceRange: { min: 650000, max: 800000 },
+    priceRange: { min: 647279, max: 879636 },
   },
 
   setCars: (cars) =>
@@ -63,9 +63,12 @@ export const useCarStore = create<CarStoreState>((set) => ({
   },
   setHighlightedCars: () =>
     set((state) => {
-      const highlightedCars = state.allCars.filter((car) => car.stars > 4);
+      const carsToHighlight =
+        state.filteredCars.length > 0 ? state.filteredCars : state.allCars;
+      const highlightedCars = carsToHighlight.filter((car) => car.stars > 4);
       return { filteredCars: highlightedCars };
     }),
+
   setFilter: (type, value) =>
     set((state) => {
       let updated: string[];
