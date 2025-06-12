@@ -7,6 +7,7 @@ const filters = [
       "Económico",
       "Compacto",
       "Intermedio",
+      "Grande",
       "Estándar",
       "SUV",
       "Van",

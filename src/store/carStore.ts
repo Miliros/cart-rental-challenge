@@ -65,8 +65,11 @@ export const useCarStore = create<CarStoreState>((set) => ({
     set((state) => {
       const carsToHighlight =
         state.filteredCars.length > 0 ? state.filteredCars : state.allCars;
-      const highlightedCars = carsToHighlight.filter((car) => car.stars > 4);
-      return { filteredCars: highlightedCars };
+      const reorderedCars = [
+        ...carsToHighlight.filter((car) => car.stars > 4), // Destacados
+        ...carsToHighlight.filter((car) => car.stars <= 4), // No destacados
+      ];
+      return { filteredCars: reorderedCars };
     }),
 
   setFilter: (type, value) =>
