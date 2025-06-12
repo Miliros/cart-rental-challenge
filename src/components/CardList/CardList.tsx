@@ -16,7 +16,7 @@ const CardList = () => {
 
   return (
     <div className="flex-1 p-4 w-full ">
-      <div className="max-w-[890px] w-[890px] mx-auto">
+      <div className="md:max-w-[890px] md:w-[890px] mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-start bg-[var(--color-light-red)] rounded-md mb-6 space-y-6 md:space-y-0 md:space-x-8 w-full">
           <h2 className="text-sm text-[var(--color-custom-blue)] font-font3">
             Encontramos {cars.length} vehículos para tu búsqueda

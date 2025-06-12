@@ -18,7 +18,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   const selectedCars = useCarStore((state) => state.selectedCars);
-  const selectionIndex = selectedCars.indexOf(car.uniqueId || ""); // Usa una cadena vacía como valor predeterminado
+  const selectionIndex = selectedCars.indexOf(car.uniqueId || "");
 
   const selectCar = useCarStore((state) => state.selectCar);
 
@@ -52,20 +52,21 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
   const handleCloseModal = () => setModalData(null);
 
   return (
-    <div className="flex flex-row  justify-between shadow-lg shadow-bg-[var(--color-custom-disabled)] rounded-xl  bg-white  w-[895px] h-[282px]">
-      <div className="flex flex-col items-start pt-5 pl-6 relative w-[24%] ">
-        <div className="absolute left-0 top-0 h-full w-2 bg-[var(--color-custom-highlight)] rounded-l-md " />{" "}
+    <div className="flex flex-col md:flex-row shadow-lg rounded-xl bg-white w-full md:w-[895px] md:h-[282px]">
+      {/* Logo y estrellas */}
+      <div className="flex flex-col items-center md:items-start pt-4 px-4 md:pt-5 md:pl-6 relative md:w-[24%]">
+        <div className="absolute left-0 top-0 h-full w-2 bg-[var(--color-custom-highlight)] rounded-l-md hidden md:block" />
         {selectionIndex !== -1 && (
-          <div className="absolute top-5 right-4 bg-[var(--color-custom-green)] text-white rounded-full w-6 h-6 flex items-center justify-center text-[10px] font-bold z-10">
+          <div className="absolute top-4 right-4 bg-[var(--color-custom-green)] text-white rounded-full w-6 h-6 flex items-center justify-center text-[10px] font-bold z-10">
             {selectionIndex + 1}°
           </div>
         )}
         <img
           src={companyLogos[car.company] || ""}
           alt={`${car.company} logo`}
-          className="w-16 object-contain mb-2"
+          className="w-10 h-10 md:w-16 md:h-auto object-contain rounded-full"
         />
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 mt-2">
           {[...Array(car.stars)].map((_, index) => (
             <img
               key={index}
@@ -86,33 +87,24 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
         <img
           src={car.picture_url.featured}
           alt={`${car.name}`}
-          className="w-50 h-auto mb-4 pt-6"
+          className="w-32 h-auto mb-4 pt-4 md:w-50 md:pt-6"
         />
-        {car.stars > 4 && (
-          <div className="flex items-center gap-2 mt-1 bg-green-100 text-[var(--color-custom-green)] p-2 rounded-md text-sm font-font2">
-            <img
-              src="images/icons_logos/featured-icon.svg"
-              alt="Ícono destacado"
-              className="w-4 h-4"
-            />
-            Destacado
-          </div>
-        )}
       </div>
 
-      <div className="flex flex-col justify-between p-6 flex-grow border-gray-200 w-[14%] ">
+      {/* Detalles del auto */}
+      <div className="flex flex-col justify-between p-4 md:p-6 flex-grow border-gray-200 md:w-[14%]">
         <div>
-          <p className="text-[12px] text-[var(--color-custom-bold)] font-font3 tracking-wider">
+          <p className="text-sm md:text-[12px] text-[var(--color-custom-bold)] font-font3 tracking-wider">
             GRUPO {car.vehicle_group} - {car.code}
           </p>
-
-          <h3 className="text-lg font-font3 text-[var(--color-custom-blue)] mb-1">
+          <h3 className="text-base md:text-lg font-font3 text-[var(--color-custom-blue)] mb-1">
             {car.features.category}
           </h3>
-
-          <p className="text-sm text-black font-font1">{car.name_details}</p>
+          <p className="text-xs md:text-sm text-black font-font1">
+            {car.name_details}
+          </p>
         </div>
-        <ul className="flex flex-wrap items-center gap-2 text-sm text-gray-700 mt-4 border-b-2 pb-7 border-gray-200">
+        <ul className="flex flex-wrap items-center gap-2 text-xs md:text-sm text-gray-700 mt-4 border-b-2 pb-7 border-gray-200">
           {createFeaturesList(car)
             .filter(
               (feature) =>
@@ -138,8 +130,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
               </li>
             ))}
         </ul>
-
-        {selectedCars.includes(car.code) ? (
+        {selectedCars.includes(car.uniqueId) ? (
           <p className="text-[var(--color-custom-green)] text-sm mt-4 flex items-center gap-1 font-font2">
             <HiCheck className="text-[var(--color-custom-green)]" size={18} />
             Vehículo agregado a su cotización ({selectedCars.length} de 5)
@@ -154,6 +145,8 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
           </p>
         )}
       </div>
+
+      {/* Tarjeta de precio */}
       <div className="flex flex-col justify-center items-center p-4 w-[320px] border-l border-gray-200 border-dashed">
         <div className="shadow-md shadow-bg-[var(--color-custom-disabled)]  rounded-xl p-4 w-full relative overflow-visible">
           <div className="relative flex items-center justify-center gap-2 mb-2">
@@ -214,6 +207,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
           </div>
         </div>
       </div>
+
       {modalData && (
         <CarModal
           modalData={modalData}
