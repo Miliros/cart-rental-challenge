@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import useCarData from "../../hooks/useCarData";
 import { useCarStore } from "../../store/carStore";
 import CardCar from "../CardCar/CardCar";
@@ -10,24 +9,10 @@ const CardList = () => {
 
   const cars = useCarStore((state) => state.filteredCars);
   const setSort = useCarStore((state) => state.setSort);
+  const highlighted = useCarStore((state) => state.highlighted);
   const toggleHighlightedCars = useCarStore(
     (state) => state.toggleHighlightedCars
   );
-  const applyFilters = useCarStore((state) => state.applyFilters);
-
-  const [showHighlighted, setShowHighlighted] = useState(false);
-
-  useEffect(() => {
-    if (showHighlighted) {
-      toggleHighlightedCars();
-    } else {
-      applyFilters();
-    }
-  }, [showHighlighted, applyFilters, toggleHighlightedCars]);
-
-  const handleShowHighlighted = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setShowHighlighted(e.target.checked);
-  };
 
   return (
     <div className="flex-1 p-4 w-full ">
@@ -40,9 +25,11 @@ const CardList = () => {
             <label className="flex items-center text-gray-600">
               <input
                 type="checkbox"
+                checked={highlighted}
+                onChange={toggleHighlightedCars}
                 className="form-checkbox rounded-lg h-5 w-5 text-blue-600"
-                onChange={handleShowHighlighted}
               />
+
               <span className="appearance-none rounded-xl ml-4 mr-8 text-sm text-black font-font1">
                 Mostrar destacados primero
               </span>

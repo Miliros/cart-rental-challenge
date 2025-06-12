@@ -207,6 +207,7 @@ function aplicarFiltros(
   if (highlight) {
     result.sort((a, b) => b.stars - a.stars);
   }
+  console.log(highlight);
 
   return result;
 }
