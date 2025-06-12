@@ -22,7 +22,8 @@ interface CarStoreState {
   ) => void;
   setPriceRange: (min: number, max: number) => void;
   applyFilters: () => void;
-  setHighlightedCars: () => void;
+  toggleHighlightedCars: () => void;
+  highlighted: boolean;
   selectedCars: string[];
   selectCar: (code: string) => void;
   unselectCar: (code: string) => void;
@@ -36,8 +37,9 @@ export const useCarStore = create<CarStoreState>((set) => ({
     doors: [],
     large_suitcase: [],
     sort: "none",
-    priceRange: { min: 647279, max: 879636 },
+    priceRange: { min: 647278, max: 880000 },
   },
+  highlighted: false,
 
   setCars: (cars) =>
     set((state) => {
@@ -45,10 +47,15 @@ export const useCarStore = create<CarStoreState>((set) => ({
         ...car,
         uniqueId: `${car.code}-${index}`,
       }));
+      const newFilters = { ...state.filters };
       return {
         ...state,
         allCars: updatedCars,
-        filteredCars: aplicarFiltros(updatedCars, state.filters),
+        filteredCars: aplicarFiltros(
+          updatedCars,
+          newFilters,
+          state.highlighted
+        ),
       };
     }),
 
@@ -57,43 +64,37 @@ export const useCarStore = create<CarStoreState>((set) => ({
       const newFilters = { ...state.filters, sort };
       return {
         filters: newFilters,
-        filteredCars: aplicarFiltros(state.allCars, newFilters),
+        filteredCars: aplicarFiltros(
+          state.allCars,
+          newFilters,
+          state.highlighted
+        ),
       };
     });
   },
-  setHighlightedCars: () =>
+
+  toggleHighlightedCars: () =>
     set((state) => {
-      const carsToHighlight =
-        state.filteredCars.length > 0 ? state.filteredCars : state.allCars;
-      const reorderedCars = [
-        ...carsToHighlight.filter((car) => car.stars > 4), // Destacados
-        ...carsToHighlight.filter((car) => car.stars <= 4), // No destacados
-      ];
-      return { filteredCars: reorderedCars };
+      const newHighlighted = !state.highlighted;
+      return {
+        highlighted: newHighlighted,
+        filteredCars: aplicarFiltros(
+          state.allCars,
+          state.filters,
+          newHighlighted
+        ),
+      };
     }),
 
   setFilter: (type, value) =>
     set((state) => {
       let updated: string[];
+      const currentValues =
+        state.filters[type as "category" | "doors" | "large_suitcase"];
 
-      if (type === "category") {
-        const currentValues = state.filters.category;
-
-        if (value === "Todas las categorias") {
-          updated = [];
-        } else {
-          if (currentValues.includes(value)) {
-            updated = currentValues.filter((v) => v !== value);
-          } else {
-            updated = [...currentValues, value];
-          }
-
-          if (updated.length === 0) {
-            updated = [];
-          }
-        }
+      if (type === "category" && value === "Todas las categorias") {
+        updated = [];
       } else {
-        const currentValues = state.filters[type];
         updated = currentValues.includes(value)
           ? currentValues.filter((v) => v !== value)
           : [...currentValues, value];
@@ -102,7 +103,11 @@ export const useCarStore = create<CarStoreState>((set) => ({
       const newFilters = { ...state.filters, [type]: updated };
       return {
         filters: newFilters,
-        filteredCars: aplicarFiltros(state.allCars, newFilters),
+        filteredCars: aplicarFiltros(
+          state.allCars,
+          newFilters,
+          state.highlighted
+        ),
       };
     }),
 
@@ -114,14 +119,23 @@ export const useCarStore = create<CarStoreState>((set) => ({
       };
       return {
         filters: newFilters,
-        filteredCars: aplicarFiltros(state.allCars, newFilters),
+        filteredCars: aplicarFiltros(
+          state.allCars,
+          newFilters,
+          state.highlighted
+        ),
       };
     }),
+
   applyFilters: () =>
-    set((state) => {
-      const filtered = aplicarFiltros(state.allCars, state.filters);
-      return { filteredCars: filtered };
-    }),
+    set((state) => ({
+      filteredCars: aplicarFiltros(
+        state.allCars,
+        state.filters,
+        state.highlighted
+      ),
+    })),
+
   selectedCars: [],
   selectCar: (uniqueId) =>
     set((state) => ({
@@ -134,7 +148,11 @@ export const useCarStore = create<CarStoreState>((set) => ({
     })),
 }));
 
-function aplicarFiltros(cars: Car[], filters: CarStoreState["filters"]): Car[] {
+function aplicarFiltros(
+  cars: Car[],
+  filters: CarStoreState["filters"],
+  highlight: boolean
+): Car[] {
   let result = [...cars];
 
   if (filters.category.length > 0) {
@@ -185,5 +203,10 @@ function aplicarFiltros(cars: Car[], filters: CarStoreState["filters"]): Car[] {
       return price >= filters.priceRange.min && price <= filters.priceRange.max;
     });
   }
+
+  if (highlight) {
+    result.sort((a, b) => b.stars - a.stars);
+  }
+
   return result;
 }

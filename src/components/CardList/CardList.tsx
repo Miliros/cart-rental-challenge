@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import useCarData from "../../hooks/useCarData";
 import { useCarStore } from "../../store/carStore";
 import CardCar from "../CardCar/CardCar";
@@ -9,17 +10,24 @@ const CardList = () => {
 
   const cars = useCarStore((state) => state.filteredCars);
   const setSort = useCarStore((state) => state.setSort);
-  const setHighlightedCars = useCarStore((state) => state.setHighlightedCars);
+  const toggleHighlightedCars = useCarStore(
+    (state) => state.toggleHighlightedCars
+  );
   const applyFilters = useCarStore((state) => state.applyFilters);
 
-  const handleShowHighlighted = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      setHighlightedCars();
+  const [showHighlighted, setShowHighlighted] = useState(false);
+
+  useEffect(() => {
+    if (showHighlighted) {
+      toggleHighlightedCars();
     } else {
       applyFilters();
     }
+  }, [showHighlighted, applyFilters, toggleHighlightedCars]);
+
+  const handleShowHighlighted = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setShowHighlighted(e.target.checked);
   };
-  // console.log(cars);
 
   return (
     <div className="flex-1 p-4 w-full ">
