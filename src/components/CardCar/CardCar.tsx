@@ -53,7 +53,6 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
 
   return (
     <div className="flex flex-col md:flex-row shadow-lg rounded-xl bg-white w-full md:w-[895px] md:h-[282px]">
-      {/* Logo y estrellas */}
       <div className="flex flex-col items-center md:items-start pt-4 px-4 md:pt-5 md:pl-6 relative md:w-[24%]">
         <div className="absolute left-0 top-0 h-full w-2 bg-[var(--color-custom-highlight)] rounded-l-md hidden md:block" />
         {selectionIndex !== -1 && (
@@ -64,9 +63,9 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
         <img
           src={companyLogos[car.company] || ""}
           alt={`${car.company} logo`}
-          className="w-10 h-10 md:w-16 md:h-auto object-contain rounded-full"
+          className="w-18 h-18 md:w-16 md:h-auto object-contain rounded-full"
         />
-        <div className="flex items-center gap-1 mt-2">
+        <div className="flex items-center gap-1 md:mt-2">
           {[...Array(car.stars)].map((_, index) => (
             <img
               key={index}
@@ -87,12 +86,11 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
         <img
           src={car.picture_url.featured}
           alt={`${car.name}`}
-          className="w-32 h-auto mb-4 pt-4 md:w-50 md:pt-6"
+          className="w-72 h-auto mb-4 pt-4 md:w-50 md:pt-6"
         />
       </div>
 
-      {/* Detalles del auto */}
-      <div className="flex flex-col justify-between p-4 md:p-6 flex-grow border-gray-200 md:w-[14%]">
+      <div className="flex flex-col p-4 md:p-6 flex-grow border-gray-200 md:w-[14%] items-center md:items-start text-center md:text-left">
         <div>
           <p className="text-sm md:text-[12px] text-[var(--color-custom-bold)] font-font3 tracking-wider">
             GRUPO {car.vehicle_group} - {car.code}
@@ -146,8 +144,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
         )}
       </div>
 
-      {/* Tarjeta de precio */}
-      <div className="flex flex-col justify-center items-center p-4 w-[320px] border-l border-gray-200 border-dashed">
+      <div className="flex flex-col justify-center items-center p-4 w-full max-w-[320px] md:w-[320px] border-l border-gray-200 border-dashed mx-auto md:mx-0">
         <div className="shadow-md shadow-bg-[var(--color-custom-disabled)]  rounded-xl p-4 w-full relative overflow-visible">
           <div className="relative flex items-center justify-center gap-2 mb-2">
             <p className="text[16px] font-font3 mr-1">Inclusive Light</p>
