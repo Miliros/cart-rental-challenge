@@ -13,7 +13,8 @@ function App() {
   };
 
   return (
-    <div className="bg-white flex flex-col items-center min-h-screen pt-2">
+    <div className="bg-white flex flex-col min-h-screen">
+      {/* Contenedor principal */}
       <div className="max-w-7xl w-full bg-white">
         <NavBar />
         <ReservationDetails
@@ -24,11 +25,14 @@ function App() {
           onModify={handleModify}
         />
       </div>
+
+      {/* Navegación de pasos */}
       <div className="flex items-center justify-center w-full bg-[var(--color-custom-2)] min-h-[60px] h-auto mt-4 py-2">
         <StepsNavigation />
       </div>
 
-      <div className="w-full bg-[var(--color-custom-light-gray)] h-full flex justify-center pt-4 pb-5">
+      {/* Contenedor de contenido principal */}
+      <div className="w-full bg-[var(--color-custom-light-gray)] flex-grow flex justify-center pt-4 pb-5">
         <div className="pt-1.5 w-[89%] sm:w-[89%] md:w-[89%] lg:w-[89%] xl:w-auto">
           <div className="flex flex-row w-full mx-auto bg-transparent items-start">
             <FilterSidebar />
@@ -36,6 +40,8 @@ function App() {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
       <div className="w-full">
         <Suscribe />
         <Footer />

@@ -15,8 +15,8 @@ const CardList = () => {
   );
 
   return (
-    <div className="flex-1 p-4 w-full">
-      <div className="md:max-w-[890px] md:w-[890px]">
+    <div className="flex-1 p-4 w-full h-full">
+      <div className="md:max-w-[890px] md:w-[890px] ">
         <div className="flex flex-col md:flex-row items-center justify-start bg-[var(--color-light-red)] rounded-md mb-6 space-y-6 md:space-y-0 md:space-x-8 w-full">
           <h2 className="order-3 md:order-1 flex text-sm text-[var(--color-custom-blue)] font-font3 justify-start md:text-left mb-0 md:pl-2">
             Encontramos {cars.length} vehículos para tu búsqueda
@@ -57,7 +57,7 @@ const CardList = () => {
           </div>
         </div>
 
-        <div className="flex flex-col space-y-6 md:w-[895px] md:h-[282px]">
+        <div className="flex flex-col space-y-6 md:w-[895px] ">
           {cars.length === 0 ? (
             <div className="flex justify-center items-center md:w-[895px] md:h-[182px]">
               <div className="bg-white rounded-md p-6 text-center shadow-md ">

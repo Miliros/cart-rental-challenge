@@ -1,18 +1,17 @@
 export const Footer = () => {
   return (
-    <div className="w-full bg-white">
-      <div className="px-4 md:px-20">
-        <div className="mx-auto max-w-7xl">
-          {/* Sección superior del footer */}
-          <div className="flex flex-col md:flex-row py-10 gap-y-10 md:gap-y-0 md:gap-x-8">
-            {/* Logo y redes sociales */}
-            <div className="flex flex-col items-center md:items-start md:w-1/4">
+    <div>
+      <div className="w-full pl-20 sm:pl-6 px-4">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="flex flex-col lg:flex-row py-14 gap-x-6 gap-y-10">
+            {/* Logo + redes sociales */}
+            <div className="w-full lg:w-[200px] mr-0 lg:mr-20 text-center lg:text-left mb-10 lg:mb-0">
               <img
                 src="/images/icons_logos/logo-udr.svg"
-                className="w-[200px] mb-6"
-                alt="Logo Unión de Representaciones"
+                className="w-[200px] mb-6 mx-auto lg:mx-0"
+                alt="Logo UDR"
               />
-              <div className="flex space-x-4">
+              <div className="flex justify-center lg:justify-start space-x-4 w-full max-w-[200px] mx-auto lg:mx-0">
                 {[
                   "wa.png",
                   "instagram.png",
@@ -22,21 +21,21 @@ export const Footer = () => {
                 ].map((icon, index) => (
                   <a
                     key={index}
-                    href="javascript:;"
-                    className="w-8 h-8 rounded-lg bg-[var(--color-custom-blue)] flex justify-center items-center hover:bg-indigo-600"
+                    href="#"
+                    className="w-7 h-7 rounded-lg bg-[var(--color-custom-blue)] flex justify-center items-center hover:bg-indigo-600"
                   >
                     <img
                       src={`/images/${icon}`}
                       className="w-4 h-4"
-                      alt={`${icon} icon`}
+                      alt={`Icono ${icon}`}
                     />
                   </a>
                 ))}
               </div>
             </div>
 
-            {/* Secciones del footer */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-x-8 w-full">
+            {/* Secciones en grid responsive: 2 cols mobile, 4 cols desktop */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full lg:w-auto">
               {[
                 {
                   title: "¿Necesitas ayuda?",
@@ -49,6 +48,7 @@ export const Footer = () => {
                 {
                   title: "Instructivos",
                   items: ["Disney", "Universal", "Avis Budget", "Terrawind"],
+                  className: "pl-7",
                 },
                 {
                   title: "Información",
@@ -68,16 +68,24 @@ export const Footer = () => {
                   ],
                 },
               ].map((section, index) => (
-                <div key={index}>
-                  <h4 className="font-font3 text-[var(--color-custom-blue)] text-[16px] mb-4">
+                <div
+                  key={index}
+                  className={`text-center sm:text-left w-full ${
+                    section.className || ""
+                  }`}
+                >
+                  <h4 className="font-font3 text-[var(--color-custom-blue)] text-[18px] mb-4">
                     {section.title}
                   </h4>
-                  <ul className="space-y-3">
+                  <ul className="text-sm space-y-3 justify-start">
                     {section.items.map((item, itemIndex) => (
-                      <li key={itemIndex}>
+                      <li
+                        key={itemIndex}
+                        className="w-full max-w-[220px] mx-auto sm:mx-0"
+                      >
                         <a
-                          href="javascript:;"
-                          className="font-font1 text-[var(--custom-dark-blue)] text-[14px]"
+                          href="#"
+                          className="font-font1 text-[var(--custom-dark-blue)] text-[13px]"
                         >
                           {item}
                         </a>
@@ -89,41 +97,55 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Sección intermedia con logos */}
-          <div className="border-t border-b border-gray-200 py-6 flex flex-wrap justify-center gap-6">
-            {[
-              "anato-logo.png",
-              "camara-colombiana-comercio-logo.png",
-              "superintendencia-logo.png",
-              "super-transporte-logo.png",
-              "aeronautica-logo.png",
-              "iata-logo.svg",
-            ].map((logo, index) => (
-              <div
-                key={index}
-                className="w-[100px] h-auto flex justify-center items-center"
-              >
-                <img
-                  src={`/images/company_logos/${logo}`}
-                  className="max-w-full"
-                  alt={logo}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Sección inferior con copyright */}
-          <div className="py-6 border-t border-gray-200">
-            <div className="flex flex-col items-center space-y-4 md:flex-row md:justify-between md:space-y-0">
-              <span className="font-font1 text-[var(--custom-dark-blue)] text-[12px] text-center">
-                © 2025 - Copyright Unión de Representaciones S.A.S. Todos los
-                derechos reservados.
-              </span>
+          {/* Logos en la parte inferior */}
+          <div className="border-t border-b border-gray-200">
+            <div className="flex flex-wrap justify-between items-center py-5 gap-4">
               <img
-                src="/images/icons_logos/greenFlame-logo.svg"
-                className="w-[110px]"
-                alt="Green Flame Logo"
+                src="/images/company_logos/anato-logo.png"
+                className="w-[120px] h-auto"
+                alt="Anato"
               />
+              <img
+                src="/images/company_logos/camara-colombiana-comercio-logo.png"
+                className="w-[120px] h-auto"
+                alt="Cámara de Comercio"
+              />
+              <img
+                src="/images/company_logos/superintendencia-logo.png"
+                className="w-[120px] h-auto"
+                alt="Superintendencia"
+              />
+              <img
+                src="/images/company_logos/super-transporte-logo.png"
+                className="w-[120px] h-auto"
+                alt="Super Transporte"
+              />
+              <img
+                src="/images/company_logos/aeronautica-logo.png"
+                className="w-[120px] h-auto"
+                alt="Aeronautica"
+              />
+              <img
+                src="/images/icons_logos/iata-logo.svg"
+                className="w-[120px] h-[36px]"
+                alt="IATA"
+              />
+            </div>
+
+            <div className="py-4 border-t border-gray-200">
+              <div className="flex flex-col lg:flex-row items-center lg:justify-between">
+                <span className="font-font1 text-[var(--custom-dark-blue)] text-[13px] text-center lg:text-left">
+                  © 2025 - Copyright Unión de Representaciones S.A.S. Todos los
+                  derechos reservados.
+                </span>
+                <ul className="flex items-center gap-9 mt-4 lg:mt-0">
+                  <img
+                    src="images/icons_logos/greenFlame-logo.svg"
+                    className="w-[110px]"
+                    alt="Green Flame"
+                  />
+                </ul>
+              </div>
             </div>
           </div>
         </div>
