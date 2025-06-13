@@ -1,13 +1,17 @@
+import { useState } from "react";
+import { Drawer, IconButton } from "@mui/material";
 import { AiOutlineDown } from "react-icons/ai";
+import { useMediaQuery } from "@mui/material";
 import { useCarStore } from "../../store/carStore";
-
 import filters from "./filters";
 import FilterPriceSlider from "./FilterPriceSlider";
 
 const FilterSidebar: React.FC = () => {
-  const allCars = useCarStore((state) => state.allCars);
-  const { priceRange } = useCarStore((state) => state.filters);
+  const isDesktop = useMediaQuery("(min-width:1024px)");
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
+  const allCars = useCarStore((state) => state.allCars);
+  // const { priceRange } = useCarStore((state) => state.filters);
   const filtersState = useCarStore((state) => state.filters);
   const setFilter = useCarStore((state) => state.setFilter);
 
@@ -36,8 +40,8 @@ const FilterSidebar: React.FC = () => {
     return 0;
   };
 
-  return (
-    <div className="w-[290px] max-w-[290px] bg-white pt-6 pb-6 rounded-lg shadow-lg mr-4">
+  const FilterContent = (
+    <div className="w-[290px] max-w-[290px] bg-white pt-6 pb-6 rounded-lg shadow-lg">
       <div className="flex items-center mb-4 pl-8">
         <img
           src="images/icons_logos/filter-icon.svg"
@@ -86,7 +90,7 @@ const FilterSidebar: React.FC = () => {
         </div>
       ))}
 
-      <div className="flex flex-col items-center mb-4 ">
+      <div className="flex flex-col items-center mb-4">
         <div className="flex items-center justify-between w-full cursor-pointer bg-[var(--color-custom-filters)] pr-6 pt-4 pb-4 pl-8">
           <h3 className="text-[16px] text-[var(--color-custom-blue)] whitespace-nowrap font-font3">
             Fijar un rango de precio (COP)
@@ -95,60 +99,38 @@ const FilterSidebar: React.FC = () => {
         </div>
 
         <div className="w-full px-4 space-y-4 p-7">
-          <div className="relative w-[92%] h-6 flex items-center pl-3">
-            <div className="absolute w-full h-1 rounded-full" />
-
-            <FilterPriceSlider />
-          </div>
-
-          <div className="flex flex-col gap-3 pl-2">
-            <div className="flex rounded-lg border border-[var(--color-custom-gray)] overflow-hidden min-w-3xs">
-              <div className="bg-gray-200 flex items-center px-3 py-2">
-                <span className="text-[var(--color-custom-bold)] font-font3 text-[12px]">
-                  COP
-                </span>
-              </div>
-              <div className="bg-white flex items-center justify-between px-3 py-2 w-full">
-                <span className="text-[var(--color-custom-bold)] font-font2 mr-2">
-                  desde
-                </span>
-                <input
-                  type="text"
-                  readOnly
-                  value={priceRange.min.toLocaleString("es-CO", {
-                    style: "decimal",
-                    minimumFractionDigits: 2,
-                  })}
-                  className="bg-transparent focus:outline-none w-full text-right font-font3 text-[var(--color-custom-blue)]"
-                />
-              </div>
-            </div>
-
-            <div className="flex rounded-lg border border-[var(--color-custom-gray)] overflow-hidden">
-              <div className="bg-gray-200 flex items-center px-3 py-2">
-                <span className="text-[var(--color-custom-bold)] font-font3 text-[12px]">
-                  COP
-                </span>
-              </div>
-              <div className="bg-white flex items-center justify-between px-3 py-2 w-full">
-                <span className="text-[var(--color-custom-bold)] font-font2 mr-2">
-                  hasta
-                </span>
-                <input
-                  type="text"
-                  readOnly
-                  value={priceRange.max.toLocaleString("es-CO", {
-                    style: "decimal",
-                    minimumFractionDigits: 2,
-                  })}
-                  className="bg-transparent focus:outline-none w-full text-right font-font3 text-[var(--color-custom-blue)]"
-                />
-              </div>
-            </div>
-          </div>
+          <FilterPriceSlider />
         </div>
       </div>
     </div>
+  );
+
+  return (
+    <>
+      {isDesktop ? (
+        <div className="mr-4">{FilterContent}</div>
+      ) : (
+        <>
+          <IconButton
+            onClick={() => setDrawerOpen(true)}
+            className="fixed left-4 top-34.5 z-50 bg-transparent  p-2 rounded-full"
+          >
+            <img
+              src="images/icons_logos/filter-icon.svg"
+              alt="Filtrar"
+              className="w-[28px] h-[28px] mr-4 mt-1"
+            />
+          </IconButton>
+          <Drawer
+            anchor="left"
+            open={drawerOpen}
+            onClose={() => setDrawerOpen(false)}
+          >
+            {FilterContent}
+          </Drawer>
+        </>
+      )}
+    </>
   );
 };
 

@@ -1,16 +1,18 @@
 export const Footer = () => {
   return (
-    <div>
-      <div className="w-full pl-20">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8 ">
-          <div className="flex flex-row py-14 mr-18 gap-x-1">
-            <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0 w-2xs mr-20">
+    <div className="w-full bg-white">
+      <div className="px-4 md:px-20">
+        <div className="mx-auto max-w-7xl">
+          {/* Sección superior del footer */}
+          <div className="flex flex-col md:flex-row py-10 gap-y-10 md:gap-y-0 md:gap-x-8">
+            {/* Logo y redes sociales */}
+            <div className="flex flex-col items-center md:items-start md:w-1/4">
               <img
                 src="/images/icons_logos/logo-udr.svg"
-                className="w-[200px] mb-6 mx-auto lg:mx-0"
+                className="w-[200px] mb-6"
+                alt="Logo Unión de Representaciones"
               />
-
-              <div className="flex space-x-4 justify-center lg:justify-start sm:mt-0 w-[200px]">
+              <div className="flex space-x-4">
                 {[
                   "wa.png",
                   "instagram.png",
@@ -21,111 +23,107 @@ export const Footer = () => {
                   <a
                     key={index}
                     href="javascript:;"
-                    className="w-7 h-7 mr-3 rounded-lg bg-[var(--color-custom-blue)] flex justify-center items-center hover:bg-indigo-600"
+                    className="w-8 h-8 rounded-lg bg-[var(--color-custom-blue)] flex justify-center items-center hover:bg-indigo-600"
                   >
-                    <img src={`/images/${icon}`} className="w-4 h-4" />
+                    <img
+                      src={`/images/${icon}`}
+                      className="w-4 h-4"
+                      alt={`${icon} icon`}
+                    />
                   </a>
                 ))}
               </div>
             </div>
 
+            {/* Secciones del footer */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-x-8 w-full">
+              {[
+                {
+                  title: "¿Necesitas ayuda?",
+                  items: [
+                    "union@udr.com.co",
+                    "Teléfono: +57 601 589 7880 / 99",
+                    "Calle 20 No. 4-55, Piso 3, Bogotá",
+                  ],
+                },
+                {
+                  title: "Instructivos",
+                  items: ["Disney", "Universal", "Avis Budget", "Terrawind"],
+                },
+                {
+                  title: "Información",
+                  items: [
+                    "Aviso legal",
+                    "Políticas de privacidad",
+                    "Términos y condiciones",
+                    "Ver mis transacciones",
+                  ],
+                },
+                {
+                  title: "Nosotros",
+                  items: [
+                    "¿Quiénes somos?",
+                    "NIT: 860535628-1",
+                    "Registro Nacional de Turismo No. 1041",
+                  ],
+                },
+              ].map((section, index) => (
+                <div key={index}>
+                  <h4 className="font-font3 text-[var(--color-custom-blue)] text-[16px] mb-4">
+                    {section.title}
+                  </h4>
+                  <ul className="space-y-3">
+                    {section.items.map((item, itemIndex) => (
+                      <li key={itemIndex}>
+                        <a
+                          href="javascript:;"
+                          className="font-font1 text-[var(--custom-dark-blue)] text-[14px]"
+                        >
+                          {item}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Sección intermedia con logos */}
+          <div className="border-t border-b border-gray-200 py-6 flex flex-wrap justify-center gap-6">
             {[
-              {
-                title: "¿Necesitas ayuda?",
-                items: [
-                  "union@udr.com.co",
-                  "Teléfono: +57 601 589 7880 / 99",
-                  "Calle 20 No. 4-55, Piso 3, Bogotá",
-                ],
-              },
-              {
-                title: "Instructivos",
-                items: ["Disney", "Universal", "Avis Budget", "Terrawind"],
-                className: "pl-7",
-              },
-              {
-                title: "Información",
-                items: [
-                  "Aviso legal",
-                  "Políticas de privacidad",
-                  "Términos y condiciones",
-                  "Ver mis transacciones",
-                ],
-              },
-              {
-                title: "Nosotros",
-                items: [
-                  "¿Quiénes somos?",
-                  "NIT: 860535628-1",
-                  "Registro Nacional de Turismo No. 1041",
-                ],
-              },
-            ].map((section, index) => (
+              "anato-logo.png",
+              "camara-colombiana-comercio-logo.png",
+              "superintendencia-logo.png",
+              "super-transporte-logo.png",
+              "aeronautica-logo.png",
+              "iata-logo.svg",
+            ].map((logo, index) => (
               <div
                 key={index}
-                className={`text-center sm:text-left w-[300px] grid  ${
-                  section.className || ""
-                }`}
+                className="w-[100px] h-auto flex justify-center items-center"
               >
-                <h4 className="font-font3 text-[var(--color-custom-blue)] text-[18px] mb-4 bg">
-                  {section.title}
-                </h4>
-                <ul className="text-sm space-y-3 justify-start">
-                  {section.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="w-[220px]">
-                      <a
-                        href="javascript:;"
-                        className="font-font1 text-[var(--custom-dark-blue)] text-[13px] "
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <img
+                  src={`/images/company_logos/${logo}`}
+                  className="max-w-full"
+                  alt={logo}
+                />
               </div>
             ))}
           </div>
 
-          <div className="border-t border-b border-gray-200">
-            <div className="flex flex-row w-full justify-between items-center py-5">
+          {/* Sección inferior con copyright */}
+          <div className="py-6 border-t border-gray-200">
+            <div className="flex flex-col items-center space-y-4 md:flex-row md:justify-between md:space-y-0">
+              <span className="font-font1 text-[var(--custom-dark-blue)] text-[12px] text-center">
+                © 2025 - Copyright Unión de Representaciones S.A.S. Todos los
+                derechos reservados.
+              </span>
               <img
-                src="/images/company_logos/anato-logo.png"
-                className="w-[120px] h-auto"
+                src="/images/icons_logos/greenFlame-logo.svg"
+                className="w-[110px]"
+                alt="Green Flame Logo"
               />
-              <img
-                src="/images/company_logos/camara-colombiana-comercio-logo.png"
-                className="w-[120px] h-auto"
-              />
-              <img
-                src="/images/company_logos/superintendencia-logo.png"
-                className="w-[120px] h-auto"
-              />
-              <img
-                src="/images/company_logos/super-transporte-logo.png"
-                className="w-[120px] h-auto"
-              />
-              <img
-                src="/images/company_logos/aeronautica-logo.png"
-                className="w-[120px] h-auto"
-              />
-              <img
-                src="/images/icons_logos/iata-logo.svg"
-                className="w-[120px] h-[36PX]"
-              />
-            </div>
-            <div className="py-4 border-t border-gray-200 ">
-              <div className="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
-                <span className="font-font1 text-[var(--custom-dark-blue)] text-[13px]">
-                  © 2025 - Copyright Unión de Representaciones S.A.S. Todos los
-                  derechos reservados.
-                </span>
-                <ul className="flex items-center gap-9 mt-4 lg:mt-0">
-                  <img
-                    src="images/icons_logos/greenFlame-logo.svg"
-                    className="w-[110px]"
-                  />
-                </ul>
-              </div>
             </div>
           </div>
         </div>

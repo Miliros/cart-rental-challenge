@@ -56,14 +56,14 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
       <div className="flex flex-col items-center md:items-start pt-4 px-4 md:pt-5 md:pl-6 relative md:w-[24%]">
         <div className="absolute left-0 top-0 h-full w-2 bg-[var(--color-custom-highlight)] rounded-l-md hidden md:block" />
         {selectionIndex !== -1 && (
-          <div className="absolute top-4 right-4 bg-[var(--color-custom-green)] text-white rounded-full w-6 h-6 flex items-center justify-center text-[10px] font-bold z-10">
+          <div className="absolute top-4 right-4 bg-[var(--color-custom-green)] text-white rounded-full w-9 h-9 md:w-6 md:h-6 flex items-center justify-center text-[10px] font-bold z-10">
             {selectionIndex + 1}°
           </div>
         )}
         <img
           src={companyLogos[car.company] || ""}
           alt={`${car.company} logo`}
-          className="w-18 h-18 md:w-16 md:h-auto object-contain rounded-full"
+          className="w-14 h-14 md:w-16 md:h-auto object-contain "
         />
         <div className="flex items-center gap-1 md:mt-2">
           {[...Array(car.stars)].map((_, index) => (
@@ -86,8 +86,18 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
         <img
           src={car.picture_url.featured}
           alt={`${car.name}`}
-          className="w-72 h-auto mb-4 pt-4 md:w-50 md:pt-6"
+          className="w-72 h-auto md:mb-4 md:w-50 md:pt-6"
         />
+        {car.stars > 4 && (
+          <div className="flex items-center gap-2 m-0 md:mt-1 bg-green-100 text-[var(--color-custom-green)] p-2 rounded-md text-sm font-font2">
+            <img
+              src="images/icons_logos/featured-icon.svg"
+              alt="Ícono destacado"
+              className="w-4 h-4"
+            />
+            Destacado
+          </div>
+        )}
       </div>
 
       <div className="flex flex-col p-4 md:p-6 flex-grow border-gray-200 md:w-[14%] items-center md:items-start text-center md:text-left">
@@ -134,7 +144,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
             Vehículo agregado a su cotización ({selectedCars.length} de 5)
           </p>
         ) : (
-          <p className="text-[var(--color-custom-blue)] text-sm mt-4 font-font3 flex items-center gap-2">
+          <p className="text-[var(--color-custom-blue)] text-sm mt-2 md:mt-4 font-font3 flex items-center gap-2">
             <RiShieldCheckLine
               className="text-[var(--color-custom-blue)]"
               size={15}
@@ -147,11 +157,13 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
       <div className="flex flex-col justify-center items-center p-4 w-full max-w-[320px] md:w-[320px] border-l border-gray-200 border-dashed mx-auto md:mx-0">
         <div className="shadow-md shadow-bg-[var(--color-custom-disabled)]  rounded-xl p-4 w-full relative overflow-visible">
           <div className="relative flex items-center justify-center gap-2 mb-2">
-            <p className="text[16px] font-font3 mr-1">Inclusive Light</p>
+            <p className=" text-[19px] md:text-[16px] font-font3 mr-1">
+              Inclusive Light
+            </p>
             <img
               src="images/icons_logos/info-icon.svg"
               alt="Información adicional"
-              className="w-3.5 h-3.5 cursor-pointer"
+              className="w-5 h-5 md:w-3.5 md:h-3.5 cursor-pointer"
               onMouseEnter={() => setShowTooltip(true)}
               onMouseLeave={() => setShowTooltip(false)}
             />

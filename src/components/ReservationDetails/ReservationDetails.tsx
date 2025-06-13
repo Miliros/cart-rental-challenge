@@ -17,8 +17,7 @@ const ReservationDetails: React.FC<ReservationDetailsProps> = ({
   onModify,
 }) => {
   return (
-    <div className="px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 w-full max-w-md sm:w-auto sm:max-w-full mx-auto mt-5 overflow-hidden">
-      {/* Route Details */}
+    <div className="px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 w-full max-w-md sm:w-auto sm:max-w-full mx-auto mt-8 md:mt-3 overflow-hidden">
       <div
         className="flex items-center justify-center bg-[var(--color-custom-light-gray)] rounded-md
                   w-full max-w-xs mx-auto
@@ -34,7 +33,6 @@ const ReservationDetails: React.FC<ReservationDetailsProps> = ({
         </span>
       </div>
 
-      {/* Date Details */}
       <div
         className="flex items-center justify-center bg-[var(--color-custom-light-gray)] rounded-md
                   w-full max-w-xs mx-auto
@@ -50,10 +48,9 @@ const ReservationDetails: React.FC<ReservationDetailsProps> = ({
         </span>
       </div>
 
-      {/* Modify Button */}
       <button
         onClick={onModify}
-        className="bg-[var(--color-custom-blue)] text-white text-sm sm:text-[14px] rounded-md hover:bg-blue-700 transition w-auto sm:w-auto sm:min-w-[100px] p-3 font-font1 cursor-pointer"
+        className="bg-[var(--color-custom-blue)] text-white text-sm sm:text-[14px] rounded-md hover:bg-blue-700 transition w-[80%] md:w-auto sm:min-w-[100px] p-2 font-font1 cursor-pointer"
       >
         Modificar
       </button>
