@@ -33,10 +33,10 @@ const CarModal: React.FC<CarModalProps> = ({ modalData, handleCloseModal }) => {
             className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
           />
           <div>
-            <p className="text-[13px] sm:text-[17px] font-font3">
+            <p className="text-[11px] md:text-[17px] font-font3">
               Inclusive Light - H8
             </p>
-            <p className="font-font2 text-[var(--color-custom-blue)] text-[11px] sm:text-[12px]">
+            <p className="font-font2 text-[var(--color-custom-blue)] text-[11px] md:text-[12px]">
               Ver detalle de la tarifa
             </p>
           </div>
@@ -47,10 +47,10 @@ const CarModal: React.FC<CarModalProps> = ({ modalData, handleCloseModal }) => {
           <img
             src={modalData.image}
             alt="Car Image"
-            className="w-24 h-auto sm:w-32"
+            className="w-22 h-auto md:w-24"
           />
           <div className="text-center lg:text-left">
-            <p className="text-[12px] sm:text-[16px] text-[var(--color-custom-blue)] font-font3">
+            <p className="text-[11px] sm:text-[16px] text-[var(--color-custom-blue)] font-font3">
               COP {parseFloat(modalData.copPrice).toLocaleString()}
             </p>
             <p className="text-[12px] sm:text-[14px] text-gray-500 font-font2">
@@ -63,13 +63,13 @@ const CarModal: React.FC<CarModalProps> = ({ modalData, handleCloseModal }) => {
         <div className="flex flex-col lg:flex-row items-center gap-2 lg:gap-4">
           <button
             onClick={handleCloseModal}
-            className="bg-[var(--color-custom-blue)] text-white text-[10px] sm:text-[12px] rounded-md transition w-[80px] sm:w-[125px] h-[30px] sm:h-[35px] font-font3"
+            className="bg-[var(--color-custom-blue)] text-white text-[10px] sm:text-[12px] rounded-md transition w-[80px] sm:w-[105px] h-[30px] sm:h-[30px] font-font3"
           >
             Continuar
           </button>
           <button
             onClick={handleDelete}
-            className="flex items-center justify-center bg-red-600 text-white text-[10px] sm:text-[11px] rounded-md transition w-[80px] sm:w-[125px] h-[30px] sm:h-[35px] font-font3"
+            className="flex items-center justify-center bg-red-600 text-white text-[10px] sm:text-[11px] rounded-md transition w-[80px] sm:w-[105px] h-[30px] sm:h-[30px] font-font3"
           >
             <RiDeleteBin6Line className="mr-1 sm:mr-2" size={12} />
             <span>Eliminar</span>
