@@ -144,7 +144,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
             Vehículo agregado a su cotización ({selectedCars.length} de 5)
           </p>
         ) : (
-          <p className="text-[var(--color-custom-blue)] text-sm mt-2 md:mt-4 font-font3 flex items-center gap-2">
+          <p className="text-[var(--color-custom-blue)] text-[11px]  md:text-[14px] mt-2 md:mt-4 font-font3 flex items-center gap-2 whitespace-nowrap">
             <RiShieldCheckLine
               className="text-[var(--color-custom-blue)]"
               size={15}
