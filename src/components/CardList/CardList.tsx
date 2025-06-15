@@ -40,14 +40,12 @@ const CardList = () => {
             <button className="flex items-center justify-center bg-[var(--color-custom-blue)] text-white text-[12px] rounded-md mb-3 md:mb-0 hover:bg-blue-700 transition w-full md:w-[125px] h-[35px] font-font3">
               Enviar cotización
             </button>
-            <div className="relative w-full md:w-[125px]">
+            <div className="flex items-center justify-center relative w-full md:w-[125px] mb-2 md:mb-0">
               <select
                 onChange={(e) => setSort(e.target.value as "mayor" | "menor")}
-                className="w-full h-[35px] text-[12px] font-bold text-[var(--color-light-gray)] bg-white border border-[var(--color-custom-gray)] rounded-md hover:bg-blue-100 transition appearance-none text-center pr-6 font-font3 mb-3 md:mb-0"
+                className="w-full h-[35px] text-[12px] font-bold text-[var(--color-light-gray)] bg-white border border-[var(--color-custom-gray)] rounded-md hover:bg-blue-100 transition appearance-none text-center pr-6 font-font3"
               >
-                <option value="mayor" className="max-w-150px">
-                  Mayor precio
-                </option>
+                <option value="mayor">Mayor precio</option>
                 <option value="menor">Menor precio</option>
               </select>
               <span className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
