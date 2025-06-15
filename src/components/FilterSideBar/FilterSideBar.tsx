@@ -108,12 +108,12 @@ const FilterSidebar: React.FC = () => {
   return (
     <>
       {isDesktop ? (
-        <div className="mr-4">{FilterContent}</div>
+        <div className="">{FilterContent}</div>
       ) : (
         <>
           <IconButton
             onClick={() => setDrawerOpen(true)}
-            className="fixed left-100 bottom-0 z-50 bg-transparent   rounded-full"
+            className="fixed left-86 md:left-100 bottom-0 z-50 bg-transparent   rounded-full"
           >
             <img
               src="images/icons_logos/filter-icon.svg"

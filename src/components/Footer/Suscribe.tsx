@@ -3,7 +3,6 @@ export const Suscribe = () => {
     <div className="flex flex-col bg-[var(--color-custom-2)] w-full h-auto justify-center p-8">
       <div className="w-full p-6">
         <div className="flex flex-col space-y-6 items-start md:flex-row md:items-center md:space-y-0 md:space-x-6">
-          {/* Texto descriptivo */}
           <div className="w-full md:w-auto">
             <p className="font-font3 text-[16px] text-white leading-tight mb-4">
               ¿Quieres estar al tanto de nuestras novedades?
@@ -16,9 +15,7 @@ export const Suscribe = () => {
             </p>
           </div>
 
-          {/* Formulario */}
           <div className="flex flex-col space-y-4 w-full md:w-auto">
-            {/* Inputs y botón */}
             <div className="flex flex-col md:flex-row md:items-center md:space-x-4">
               <div className="w-full md:w-auto">
                 <label className="block mb-2 text-sm font-font1 text-white">
@@ -43,7 +40,6 @@ export const Suscribe = () => {
               </button>
             </div>
 
-            {/* Checkbox */}
             <div className="flex flex-row items-start mt-4">
               <input
                 type="checkbox"
