@@ -17,7 +17,7 @@ const ReservationDetails: React.FC<ReservationDetailsProps> = ({
   onModify,
 }) => {
   return (
-    <div className="px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 w-full max-w-md sm:w-auto sm:max-w-full mx-auto mt-8 md:mt-3 overflow-hidden">
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 w-full mt-8 md:mt-3 overflow-hidden">
       <div
         className="flex items-center justify-center bg-[var(--color-custom-light-gray)] rounded-md
                   w-full max-w-xs mx-auto

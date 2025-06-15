@@ -5,7 +5,7 @@ export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="font-font2 flex flex-wrap items-center justify-between w-full px-4 lg:px-8 lg:py-3 text-[var(--color-custom-dark-blue)]">
+    <nav className="font-font2 flex flex-wrap items-center justify-between w-full pt-3 pb-3 text-[var(--color-custom-dark-blue)]  mb-2">
       <div className="flex items-center justify-between w-full lg:w-auto">
         <div className="flex items-center">
           <img

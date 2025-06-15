@@ -13,9 +13,9 @@ function App() {
   };
 
   return (
-    <div className="bg-white flex flex-col min-h-screen">
+    <div className=" flex flex-col min-h-screen justify-center items-center">
       {/* Contenedor principal */}
-      <div className="max-w-7xl w-full bg-white">
+      <div className=" flex-col justify-center w-[90%]">
         <NavBar />
         <ReservationDetails
           origin="Miami International Airport (MIA)"
@@ -33,7 +33,7 @@ function App() {
 
       {/* Contenedor de contenido principal */}
       <div className="w-full bg-[var(--color-custom-light-gray)] flex-grow flex justify-center pt-4 pb-5">
-        <div className="pt-1.5 w-[89%] sm:w-[89%] md:w-[89%] lg:w-[89%] xl:w-auto">
+        <div className="pt-1.5 w-[90%] sm:w-[89%] md:w-[89%] lg:w-[89%] xl:w-auto">
           <div className="flex flex-row w-full mx-auto bg-transparent items-start">
             <FilterSidebar />
             <CardList />

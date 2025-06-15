@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
     <div>
-      <div className="w-full pl-20 sm:pl-6 px-4">
+      <div className="w-full">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="flex flex-col lg:flex-row py-14 gap-x-6 gap-y-10">
             {/* Logo + redes sociales */}
@@ -48,7 +48,7 @@ export const Footer = () => {
                 {
                   title: "Instructivos",
                   items: ["Disney", "Universal", "Avis Budget", "Terrawind"],
-                  className: "pl-7",
+                  className: "pl-0 md pl-7",
                 },
                 {
                   title: "Información",
