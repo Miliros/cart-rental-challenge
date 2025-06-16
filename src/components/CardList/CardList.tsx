@@ -45,7 +45,7 @@ const CardList = () => {
             <div className="flex items-center justify-center relative md:w-[125px] mb-2 md:mb-0">
               <select
                 onChange={(e) => setSort(e.target.value as "mayor" | "menor")}
-                className="w-full min-w-[125px] h-[35px] text-[12px] font-bold text-center text-[var(--color-light-gray)] bg-white border border-[var(--color-custom-gray)] rounded-md hover:bg-blue-100 transition appearance-none font-font3 pr-8"
+                className="w-full min-w-[125px] h-[35px] text-[12px] font-bold text-center bg-white border border-[var(--color-custom-gray)] rounded-md hover:bg-blue-100 transition appearance-none font-font3 pr-8"
               >
                 <option value="mayor">Mayor precio</option>
                 <option value="menor">Menor precio</option>
