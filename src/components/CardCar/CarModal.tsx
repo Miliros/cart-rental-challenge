@@ -32,23 +32,22 @@ const CarModal: React.FC<CarModalProps> = ({ modalData, handleCloseModal }) => {
           <img
             src={modalData.logo}
             alt="Car Logo"
-            className="w-12 h-9 sm:w-14 sm:h-14 object-contain"
+            className="w-10 h-9 sm:w-14 sm:h-14 object-contain"
           />
           <div>
-            <p className="text-[11px] md:text-[17px] font-font3">
+            <p className="text-[10px] md:text-[17px] font-font3">
               Inclusive Light - H8
             </p>
-            <p className="font-font2 text-[var(--color-custom-blue)] text-[11px] md:text-[12px]">
+            <p className="font-font2 text-[var(--color-custom-blue)] text-[9px] md:text-[12px]">
               Ver detalle de la tarifa
             </p>
           </div>
-        </div>
-        +{" "}
+        </div>{" "}
         <div className="flex flex-row items-center md:gap-4 lg:gap-6 md:mb-4 lg:mb-0">
           <img
             src={modalData.image}
             alt="Car Image"
-            className="w-22 h-auto md:w-24"
+            className="w-20 h-auto md:w-24"
           />
           <div className="text-center lg:text-left">
             <p className="text-[11px] sm:text-[16px] text-[var(--color-custom-blue)] font-font3">
