@@ -102,7 +102,7 @@ export const Footer = () => {
             <div className="flex flex-wrap justify-between items-center py-5 gap-4">
               <img
                 src="/images/company_logos/anato-logo.png"
-                className="w-[120px] h-auto"
+                className="w-[80px] md:w-[120px] h-auto"
                 alt="Anato"
               />
               <img
@@ -134,7 +134,7 @@ export const Footer = () => {
 
             <div className="py-4 border-t border-gray-200">
               <div className="flex flex-col lg:flex-row items-center lg:justify-between">
-                <span className="font-font1 text-[var(--custom-dark-blue)] text-[13px] text-center lg:text-left">
+                <span className="font-font1 text-[var(--custom-dark-blue)] text-[11px] md:text-[13px] text-center lg:text-left">
                   © 2025 - Copyright Unión de Representaciones S.A.S. Todos los
                   derechos reservados.
                 </span>

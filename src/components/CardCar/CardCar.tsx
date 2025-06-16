@@ -154,7 +154,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
         )}
       </div>
 
-      <div className="flex flex-col justify-center items-center p-4 w-full max-w-[320px] md:w-[320px] border-l border-gray-200 border-dashed mx-auto md:mx-0">
+      <div className="flex flex-col justify-center items-center p-4 w-full max-w-[320px] md:w-[320px] border-l border-gray-200 md:border-dashed mx-auto md:mx-0">
         <div className="shadow-md shadow-bg-[var(--color-custom-disabled)]  rounded-xl p-4 w-full relative overflow-visible">
           <div className="relative flex items-center justify-center gap-2 mb-2">
             <p className=" text-[19px] md:text-[16px] font-font3 mr-1">

@@ -35,7 +35,7 @@ function App() {
       </div>
 
       {/* Contenedor de contenido principal */}
-      <div className="w-full bg-[var(--color-custom-light-gray)]  flex justify-center pt-6 pb-5">
+      <div className="w-full bg-[var(--color-custom-light-gray)]  flex justify-center pt-4 md:pt-6 pb-5">
         <div className="pt-1.5 w-[90%] sm:w-[89%] md:w-[89%] lg:w-[89%] xl:w-auto">
           <div
             className={`flex ${
