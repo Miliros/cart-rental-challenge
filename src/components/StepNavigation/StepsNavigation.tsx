@@ -1,6 +1,6 @@
 export const StepsNavigation = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 sm:gap-6 items-center justify-center py-4 px-4">
+    <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 sm:gap-6 items-center justify-center py-4 px-4 sm:w-full">
       {/* Paso 1 */}
       <div className="flex items-center justify-between gap-2 sm:gap-4">
         <div className="text-[11px] sm:text-[12px] md:text-[14px] font-bold text-amber-50 flex items-center">

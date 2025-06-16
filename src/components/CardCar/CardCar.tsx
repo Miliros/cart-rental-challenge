@@ -139,7 +139,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
             ))}
         </ul>
         {selectedCars.includes(car.uniqueId) ? (
-          <p className="text-[var(--color-custom-green)] text-sm mt-4 flex items-center gap-1 font-font2">
+          <p className="text-[var(--color-custom-green)] text-sm mt-4 flex items-center gap-1 font-font2 whitespace-nowrap">
             <HiCheck className="text-[var(--color-custom-green)]" size={18} />
             Vehículo agregado a su cotización ({selectedCars.length} de 5)
           </p>
