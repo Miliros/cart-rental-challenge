@@ -15,10 +15,10 @@ const CardList = () => {
   );
 
   return (
-    <div className="flex-1 p-4 w-full h-full">
+    <div className="flex-1 p-6 w-full h-full">
       <div className="md:max-w-[890px] md:w-[890px] ">
         <div className="flex flex-col md:flex-row items-center justify-start bg-[var(--color-light-red)] rounded-md mb-6 space-y-6 md:space-y-0 md:space-x-8 w-full">
-          <h2 className="order-3 md:order-1 flex text-sm text-[var(--color-custom-blue)] font-font3 justify-start md:text-left mb-0 md:pl-2">
+          <h2 className="order-3 md:order-1 flex text-sm text-[var(--color-custom-blue)] font-font3 justify-start md:text-left mb-0 ">
             Encontramos {cars.length} vehículos para tu búsqueda
           </h2>
 
@@ -31,7 +31,7 @@ const CardList = () => {
                   onChange={toggleHighlightedCars}
                   className="form-checkbox rounded-lg h-5 w-5 text-blue-600 mr-2"
                 />
-                <span className="text-sm text-black font-font1">
+                <span className="text-sm text-black font-font1 mr-0 md:mr-11">
                   Mostrar destacados primero
                 </span>
               </div>

@@ -123,7 +123,7 @@ const CardCar: React.FC<CardCarProps> = ({ car }) => {
             .map((feature, index) => (
               <li
                 key={index}
-                className="flex items-center gap-1 rounded-md bg-gray-100 p-2 text-[var(--color-custom-background)] font-font3"
+                className="flex items-center gap-1 rounded-md bg-gray-100 p-1 md:p-2 text-[var(--color-custom-background)] font-font3"
               >
                 <img
                   src={feature.icon}
