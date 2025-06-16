@@ -1,9 +1,9 @@
 export const StepsNavigation = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 sm:gap-6 items-center justify-center py-4 px-4 sm:w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 sm:gap-6 items-center justify-center py-4 px-4">
       {/* Paso 1 */}
       <div className="flex items-center justify-between gap-2 sm:gap-4">
-        <div className="text-[11px] sm:text-[12px] md:text-[14px] font-bold text-amber-50 flex items-center">
+        <div className="text-[11px] sm:text-[12px] md:text-[14px] font-bold text-amber-50 flex items-center p-1 md:p-0">
           Selecciona tu vehículo
         </div>
         <img
@@ -15,7 +15,7 @@ export const StepsNavigation = () => {
 
       {/* Paso 2 */}
       <div className="flex items-center justify-between gap-2 sm:gap-4">
-        <div className="text-[11px] sm:text-[12px] md:text-[14px] text-[var(--color-custom-highlight)] flex items-center">
+        <div className="text-[11px] sm:text-[12px] md:text-[14px] text-[var(--color-custom-highlight)] flex items-center p-1 md:p-0">
           Agrega equipamiento adicional
         </div>
         <img
@@ -27,7 +27,7 @@ export const StepsNavigation = () => {
 
       {/* Paso 3 */}
       <div className="flex items-center justify-between gap-2 sm:gap-4">
-        <div className="text-[11px] sm:text-[12px] md:text-[14px] text-[var(--color-custom-highlight)] flex items-center">
+        <div className="text-[11px] sm:text-[12px] md:text-[14px] text-[var(--color-custom-highlight)] flex items-center p-1 md:p-0">
           Información del conductor
         </div>
         <img
@@ -39,7 +39,7 @@ export const StepsNavigation = () => {
 
       {/* Paso 4 */}
       <div className="flex items-center justify-between gap-2 sm:gap-4">
-        <div className="text-[11px] sm:text-[12px] md:text-[14px] text-[var(--color-custom-highlight)] flex items-center">
+        <div className="text-[11px] sm:text-[12px] md:text-[14px] text-[var(--color-custom-highlight)] flex items-center p-1 md:p-0">
           Confirmación de la reserva
         </div>
       </div>

@@ -22,17 +22,19 @@ const CardList = () => {
             Encontramos {cars.length} vehículos para tu búsqueda
           </h2>
 
-          <div className="order-1 md:order-2 flex items-center justify-center text-gray-600 w-full md:w-auto">
-            <label className="flex items-center">
-              <input
-                type="checkbox"
-                checked={highlighted}
-                onChange={toggleHighlightedCars}
-                className="form-checkbox rounded-lg h-5 w-5 text-blue-600"
-              />
-              <span className="appearance-none rounded-xl md:mr-8 md:ml-2 ml-2 text-sm text-black font-font1">
-                Mostrar destacados primero
-              </span>
+          <div className="order-1 md:order-2 w-full md:w-auto flex flex-col md:flex-row items-start md:items-center">
+            <label className="flex flex-col md:flex-row items-start md:items-center w-full">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  checked={highlighted}
+                  onChange={toggleHighlightedCars}
+                  className="form-checkbox rounded-lg h-5 w-5 text-blue-600 mr-2"
+                />
+                <span className="text-sm text-black font-font1">
+                  Mostrar destacados primero
+                </span>
+              </div>
             </label>
           </div>
 
@@ -43,7 +45,7 @@ const CardList = () => {
             <div className="flex items-center justify-center relative w-full md:w-[125px] mb-2 md:mb-0">
               <select
                 onChange={(e) => setSort(e.target.value as "mayor" | "menor")}
-                className="w-full h-[35px] text-[12px] font-bold text-center text-[var(--color-light-gray)] bg-white border border-[var(--color-custom-gray)] rounded-md hover:bg-blue-100 transition appearance-none font-font3"
+                className="w-full min-w-[125px] h-[35px] text-[12px] font-bold text-center text-[var(--color-light-gray)] bg-white border border-[var(--color-custom-gray)] rounded-md hover:bg-blue-100 transition appearance-none font-font3"
               >
                 <option value="mayor">Mayor precio</option>
                 <option value="menor">Menor precio</option>
