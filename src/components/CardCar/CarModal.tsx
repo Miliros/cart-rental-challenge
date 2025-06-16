@@ -1,6 +1,7 @@
 import React from "react";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { RiDeleteBin6Line, RiArrowRightLine } from "react-icons/ri";
 import { useCarStore } from "../../store/carStore";
+import { useMediaQuery } from "@mui/material";
 
 interface CarModalProps {
   modalData: {
@@ -15,6 +16,8 @@ interface CarModalProps {
 }
 
 const CarModal: React.FC<CarModalProps> = ({ modalData, handleCloseModal }) => {
+  const isDesktop = useMediaQuery("(min-width:1024px)");
+
   const unselectCar = useCarStore((state) => state.unselectCar);
 
   const handleDelete = () => {
@@ -25,12 +28,11 @@ const CarModal: React.FC<CarModalProps> = ({ modalData, handleCloseModal }) => {
   return (
     <div className="fixed bottom-0 left-0 w-full bg-white shadow-xl z-50 ">
       <div className="flex flex-row items-center justify-around lg:gap-8">
-        {/* Logo y detalles */}
         <div className="flex md:flex-row flex-col items-center md: md:gap-4 lg:gap-6 md:mb-4 lg:mb-0">
           <img
             src={modalData.logo}
             alt="Car Logo"
-            className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
+            className="w-12 h-9 sm:w-14 sm:h-14 object-contain"
           />
           <div>
             <p className="text-[11px] md:text-[17px] font-font3">
@@ -41,8 +43,7 @@ const CarModal: React.FC<CarModalProps> = ({ modalData, handleCloseModal }) => {
             </p>
           </div>
         </div>
-
-        {/* Imagen y precios */}
+        +{" "}
         <div className="flex flex-row items-center md:gap-4 lg:gap-6 md:mb-4 lg:mb-0">
           <img
             src={modalData.image}
@@ -58,22 +59,41 @@ const CarModal: React.FC<CarModalProps> = ({ modalData, handleCloseModal }) => {
             </p>
           </div>
         </div>
-
-        {/* Botones */}
-        <div className="flex flex-col lg:flex-row items-center gap-2 lg:gap-4">
-          <button
-            onClick={handleCloseModal}
-            className="bg-[var(--color-custom-blue)] text-white text-[10px] sm:text-[12px] rounded-md transition w-[80px] sm:w-[105px] h-[30px] sm:h-[30px] font-font3"
-          >
-            Continuar
-          </button>
-          <button
-            onClick={handleDelete}
-            className="flex items-center justify-center bg-red-600 text-white text-[10px] sm:text-[11px] rounded-md transition w-[80px] sm:w-[105px] h-[30px] sm:h-[30px] font-font3"
-          >
-            <RiDeleteBin6Line className="mr-1 sm:mr-2" size={12} />
-            <span>Eliminar</span>
-          </button>
+        <div className="flex items-center gap-2 lg:gap-4">
+          {isDesktop ? (
+            // Botones completos para desktop
+            <>
+              <button
+                onClick={handleCloseModal}
+                className="bg-[var(--color-custom-blue)] text-white text-[10px] sm:text-[12px] rounded-md transition w-[80px] sm:w-[105px] h-[30px] sm:h-[30px] font-font3 flex items-center justify-center"
+              >
+                Continuar
+              </button>
+              <button
+                onClick={handleDelete}
+                className="flex items-center justify-center bg-red-600 text-white text-[10px] sm:text-[11px] rounded-md transition w-[80px] sm:w-[105px] h-[30px] sm:h-[30px] font-font3"
+              >
+                <RiDeleteBin6Line className="mr-1 sm:mr-2" size={12} />
+                <span>Eliminar</span>
+              </button>
+            </>
+          ) : (
+            // Solo iconos para mobile
+            <>
+              <button
+                onClick={handleCloseModal}
+                className="bg-[var(--color-custom-blue)] text-white rounded-full w-8 h-8 flex items-center justify-center"
+              >
+                <RiArrowRightLine size={16} />
+              </button>
+              <button
+                onClick={handleDelete}
+                className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center"
+              >
+                <RiDeleteBin6Line size={16} />
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -113,12 +113,15 @@ const FilterSidebar: React.FC = () => {
         <>
           <IconButton
             onClick={() => setDrawerOpen(true)}
-            className="fixed bg-transparent   rounded-full"
+            className="fixed bg-transparent flex-row  rounded-full"
           >
+            <h2 className="text-[16px] text-[var(--color-custom-blue)] font-font3">
+              Filtros
+            </h2>
             <img
               src="images/icons_logos/filter-icon.svg"
               alt="Filtrar"
-              className="w-[28px] h-[28px]"
+              className="w-[25px] h-[25px] ml-2 cursor-pointer"
             />
           </IconButton>
           <Drawer

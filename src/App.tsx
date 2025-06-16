@@ -7,10 +7,13 @@ import CardList from "./components/CardList/CardList";
 import { Suscribe } from "./components/Footer/Suscribe";
 import { Footer } from "./components/Footer/Footer";
 
+import { useMediaQuery } from "@mui/material";
+
 function App() {
   const handleModify = () => {
     console.log("Modificar reserva");
   };
+  const isDesktop = useMediaQuery("(min-width:1024px)");
 
   return (
     <div className="flex flex-col min-h-screen justify-center items-center">
@@ -32,10 +35,12 @@ function App() {
       </div>
 
       {/* Contenedor de contenido principal */}
-      <div className="w-full bg-[var(--color-custom-light-gray)]  flex sm:justify-center pt-4 pb-5">
+      <div className="w-full bg-[var(--color-custom-light-gray)]  flex justify-center pt-4 pb-5">
         <div className="pt-1.5 w-[90%] sm:w-[89%] md:w-[89%] lg:w-[89%] xl:w-auto">
           <div
-            className={`flex flex-row w-full mx-auto bg-transparent items-start`}
+            className={`flex ${
+              isDesktop ? "flex-row items-start" : "flex-col items-center"
+            } w-full mx-auto bg-transparent`}
           >
             <FilterSidebar />
             <CardList />
