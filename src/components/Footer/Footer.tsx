@@ -34,7 +34,6 @@ export const Footer = () => {
               </div>
             </div>
 
-            {/* Secciones en grid responsive: 2 cols mobile, 4 cols desktop */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full lg:w-auto">
               {[
                 {
